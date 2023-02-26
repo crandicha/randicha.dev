@@ -6,11 +6,11 @@ import { scrollToView } from '../../../utils/window'
 const MENUS: { icon: string; target: string }[] = [
   {
     icon: 'home',
-    target: 'about',
+    target: 'home',
   },
   {
-    icon: 'fact_check',
-    target: 'skills',
+    icon: 'account_circle',
+    target: 'about',
   },
   {
     icon: 'work',
