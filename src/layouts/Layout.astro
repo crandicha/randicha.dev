@@ -15,34 +15,20 @@ const { title } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body data-nav="false">
+  <body>
     <slot />
   </body>
 </html>
 <style is:global>
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
   :root {
-    --color-primary: #0869e1;
-    --color-primary-foreground: white;
-    --color-primary-hover: #0861cf;
-    --color-primary-active: #0757ba;
-    --color-primary-border: none;
-    --color-secondary: #181717;
-    --color-secondary-foreground: white;
-    --color-secondary-hover: #454141;
-    --color-secondary-active: #736e6e;
-    --color-secondary-border: none;
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
+    --color-primary: #f8f8f8;
+    --color-secondary: #031d44;
+    --color-tertiary: ##05b2dc;
   }
   html {
     font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
+    background-color: var(--color-primary);
   }
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,

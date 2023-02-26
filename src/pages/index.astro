@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import AboutSection from '../components/AboutSection/index.astro'
-import NavSection from '../components/NavSection/index.astro'
-import NavButton from '../components/NavButton'
+import NavSection from '../components/NavSection'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -155,6 +154,5 @@ import NavButton from '../components/NavButton'
     illum, molestias totam eligendi nostrum molestiae tempora quae, pariatur eaque
     repellendus eum vitae mollitia. pariatur eaque repellendus eum vitae mollitia.
   </main>
-  <NavSection />
-  <NavButton client:load />
+  <NavSection client:visible />
 </Layout>
