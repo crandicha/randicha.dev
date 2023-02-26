@@ -12,11 +12,13 @@ import { Image } from '@astrojs/image/components'
         Charles Randicha Gunawan Santoso
       </h2>
       <h3 class="text-3xl font-bold">Frontend Software Engineer</h3>
-      <div>I build website with performance and maintainability in min</div>
+      <div class="text-xl">
+        I build website with performance and maintainability in mind
+      </div>
     </div>
     <div class="hidden md:block">
       <Image
-        class="scale-x-[-1] bg-tertiary rounded-full"
+        class="bg-secondary rounded-full self-image"
         src="/images/self-no-bg.png"
         alt="self photo"
         width={400}
@@ -25,3 +27,19 @@ import { Image } from '@astrojs/image/components'
     </div>
   </div>
 </section>
+<style>
+  @keyframes show-self-image {
+    0% {
+      opacity: 0;
+      transform: translateX(100px) scaleX(-1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) scaleX(-1);
+    }
+  }
+  .self-image {
+    animation: show-self-image 1s ease-out;
+    transform: scaleX(-1);
+  }
+</style>

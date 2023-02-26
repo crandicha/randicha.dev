@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       colors: {
         primary: '#f8f8f8',
-        secondary: '#031d44',
-        tertiary: '#05b2dc',
+        secondary: '#49BEAA',
+        tertiary: '#235789',
       },
       fontFamily: {
         Inter: ['Inter', ...defaultTheme.fontFamily.sans],
