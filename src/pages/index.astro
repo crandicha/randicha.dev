@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import AboutSection from '../components/AboutSection/index.astro'
-import NavSection from '../components/NavSection'
+import AboutSection from '../app/AboutSection/index.astro'
+import NavButton from '../components/NavButton'
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="min-h-100vh">
     <AboutSection />
   </main>
-  <NavSection client:visible />
+  <NavButton client:visible />
 </Layout>

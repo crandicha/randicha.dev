@@ -34,7 +34,7 @@ const Menu = ({ children, ...props }: IMenuProps) => {
   )
 }
 
-const NavSection = () => {
+const NavButton = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const leftMenu = MENUS?.slice(0, Math.max((MENUS?.length + 1) / 2))
   const rightMenu = MENUS?.slice(Math.max((MENUS?.length + 1) / 2))
@@ -80,4 +80,4 @@ const NavSection = () => {
   )
 }
 
-export default NavSection
+export default NavButton
