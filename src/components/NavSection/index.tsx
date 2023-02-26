@@ -1,27 +1,32 @@
 import React from 'react'
 import { Icon } from '@material-ui/core'
 import clsx from 'clsx'
+import { scrollToView } from '../../../utils/window'
 
-const MENUS = [
+const MENUS: { icon: string; target: string }[] = [
   {
     icon: 'home',
+    target: 'about',
   },
   {
     icon: 'fact_check',
+    target: 'skills',
   },
   {
     icon: 'work',
+    target: 'work',
   },
   {
     icon: 'contacts',
+    target: 'contact',
   },
 ]
 
 interface IMenuProps extends React.HTMLProps<HTMLDivElement> {}
 
-const Menu = ({ children }: IMenuProps) => {
+const Menu = ({ children, ...props }: IMenuProps) => {
   return (
-    <div className="flex flex-1 items-center justify-center">
+    <div className="flex flex-1 items-center justify-center" {...props}>
       <div className="flex w-min cursor-pointer items-center justify-center rounded-full p-2 font-semibold leading-4 text-white hover:scale-110 hover:bg-white hover:text-black active:scale-90 active:bg-opacity-70">
         {children}
       </div>
@@ -34,6 +39,11 @@ const NavSection = () => {
   const leftMenu = MENUS?.slice(0, Math.max((MENUS?.length + 1) / 2))
   const rightMenu = MENUS?.slice(Math.max((MENUS?.length + 1) / 2))
 
+  const onClick = (target: string) => {
+    scrollToView(target)
+    setIsOpen(false)
+  }
+
   return (
     <div
       className={clsx(
@@ -42,8 +52,8 @@ const NavSection = () => {
       )}
     >
       {isOpen &&
-        leftMenu?.map(({ icon }) => (
-          <Menu>
+        leftMenu?.map(({ icon, target }) => (
+          <Menu onClick={() => onClick(target)}>
             <Icon>{icon}</Icon>
           </Menu>
         ))}
@@ -61,8 +71,8 @@ const NavSection = () => {
         </div>
       </div>
       {isOpen &&
-        rightMenu?.map(({ icon }) => (
-          <Menu>
+        rightMenu?.map(({ icon, target }) => (
+          <Menu onClick={() => onClick(target)}>
             <Icon>{icon}</Icon>
           </Menu>
         ))}
