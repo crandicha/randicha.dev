@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit',
@@ -8,6 +10,10 @@ module.exports = {
         primary: '#f8f8f8',
         secondary: '#031d44',
         tertiary: '#05b2dc',
+      },
+      fontFamily: {
+        Inter: ['Inter', ...defaultTheme.fontFamily.sans],
+        MavenPro: ['Maven Pro', ...defaultTheme.fontFamily.sans],
       },
     },
   },
