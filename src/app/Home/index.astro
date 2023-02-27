@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
+import GlitchText from '../../components/GlitchText'
 ---
 
 <section id="home">
@@ -13,7 +14,12 @@ import { Image } from '@astrojs/image/components'
       >
         Charles Randicha Gunawan Santoso
       </h2>
-      <h3 class="text-3xl font-bold md:text-4xl">Frontend Software Engineer</h3>
+      <GlitchText
+        as="h3"
+        text="Frontend Software Engineer"
+        className="text-3xl font-bold md:text-4xl"
+        client:visible
+      />
       <div class="text-xl md:text-2xl">
         I build website with performance and maintainability in mind
       </div>

@@ -20,9 +20,11 @@ const AnimatedAbout = () => {
         once
         onHidden={{
           translateX: '-50px',
+          opacity: 0,
         }}
         onVisible={{
           translateX: '0px',
+          opacity: 1,
         }}
         transition={{
           delay: 0.05,
@@ -34,9 +36,11 @@ const AnimatedAbout = () => {
         once
         onHidden={{
           translateX: '-50px',
+          opacity: 0,
         }}
         onVisible={{
           translateX: '0px',
+          opacity: 1,
         }}
         transition={{
           delay: 0.1,
