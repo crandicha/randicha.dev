@@ -20,7 +20,7 @@ import { Image } from '@astrojs/image/components'
     </div>
     <div class="hidden flex-[0_0_350px] md:block">
       <Image
-        class="bg-secondary rounded-full self-image"
+        class="bg-secondary rounded-full self-image transition"
         src="/images/self-no-bg.png"
         alt="self photo"
         width={350}
@@ -33,15 +33,15 @@ import { Image } from '@astrojs/image/components'
   @keyframes show-self-image {
     0% {
       opacity: 0;
-      transform: translateX(100px) scaleX(-1);
+      transform: scale(0) scaleX(-1);
     }
     100% {
       opacity: 1;
-      transform: translateX(0) scaleX(-1);
+      transform: scale(1) scaleX(-1);
     }
   }
   .self-image {
-    animation: show-self-image 1s ease-out;
+    animation: show-self-image 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transform: scaleX(-1);
   }
 </style>

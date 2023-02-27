@@ -17,7 +17,7 @@ const MENUS: { icon: string; target: string }[] = [
     target: 'work',
   },
   {
-    icon: 'contacts',
+    icon: 'phone',
     target: 'contact',
   },
 ]

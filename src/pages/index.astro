@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Home from '../app/Home/index.astro'
+import About from '../app/About/index.astro'
 import NavButton from '../components/NavButton'
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="min-h-100vh">
     <Home />
+    <About />
   </main>
   <NavButton client:visible />
 </Layout>
