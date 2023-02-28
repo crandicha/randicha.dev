@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import GlitchText from '../../../components/GlitchText'
+import IncreasingNumber from '../../../components/IncreasingNumber'
 
 export interface IStatisticsProps extends React.HTMLProps<HTMLDivElement> {}
 const Statistics = ({ className }: IStatisticsProps) => {
@@ -17,15 +18,14 @@ const Statistics = ({ className }: IStatisticsProps) => {
       )}
     >
       <div className="flex flex-col items-center justify-center gap-2">
-        <GlitchText
-          text={`${yearsExp}+`}
-          className="font-MavenPro text-3xl font-bold text-tertiary"
-        />
+        <div className="flex flex-row font-MavenPro text-3xl font-bold text-tertiary">
+          <IncreasingNumber number={yearsExp} />+
+        </div>
         <p className="text-center text-lg md:text-left">Years of Experience</p>
       </div>
       <div className="flex flex-col items-center justify-center gap-2">
-        <GlitchText
-          text={`${companiesWorked}`}
+        <IncreasingNumber
+          number={companiesWorked}
           className="font-MavenPro text-3xl font-bold text-tertiary"
         />
         <p className="text-center text-lg md:text-left">Companies Worked</p>
