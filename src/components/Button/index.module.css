@@ -1,0 +1,94 @@
+.button {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-tertiary)!important;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  transition-duration: 150ms;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: var(--hover-color)!important;
+  transform: scale(1.05);
+}
+
+.button:active {
+  background-color: var(--active-color)!important;
+  transofrm: scale(0.9)
+  @apply shadow-inner;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.primary {
+  --background-color: var(--color-primary);
+  --color-foreground: var(--color-primary-foreground);
+  --border-color: var(--color-primary-border);
+  --hover-color: var(--color-primary-hover);
+  --active-color: var(--color-primary-active);
+
+  background-color: var(--background-color)!important;
+  color: var(--color-foreground);
+  border: 1px solid var(--border-color);
+}
+
+.secondary {
+  --background-color: var(--color-secondary);
+  --color-foreground: var(--color-secondary-foreground);
+  --border-color: var(--color-secondary-border);
+  --hover-color: var(--color-secondary-hover);
+  --active-color: var(--color-secondary-active);
+
+  background-color: var(--background-color)!important;
+  color: var(--color-foreground);
+  border: 1px solid var(--border-color);
+}
+
+.tertiary {
+  --background-color: var(--color-tertiary);
+  --color-foreground: var(--color-tertiary-foreground);
+  --border-color: var(--color-tertiary-border);
+  --hover-color: var(--color-tertiary-hover);
+  --active-color: var(--color-tertiary-active);
+
+  background-color: var(--background-color)!important;
+  color: var(--color-foreground);
+  border: 1px solid var(--border-color);
+}
+
+.white {
+  --background-color: white;
+  --color-foreground: #181717;
+  --border-color: #181717;
+  --hover-color: #f2f2f2;
+  --active-color: #e6e6e6;
+
+  background-color: var(--background-color)!important;
+  color: var(--color-foreground);
+  border: 1px solid var(--border-color);
+}
+
+.ghost {
+  background-color: transparent!important;
+  color: var(--background-color);
+}
+
+.ghost:hover {
+  @apply bg-gray-200;
+  color: var(--hover-color);
+}
+
+.ghost:active {
+  background-color: transparent!important;
+  color: var(--active-color);
+}

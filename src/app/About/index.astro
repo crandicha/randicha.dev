@@ -1,9 +1,15 @@
 ---
 import AnimatedAbout from './AnimatedAbout'
 import GlitchText from '../../components/GlitchText'
+import Statistics from './Statistics'
+import Button from '../../components/Button'
+import { Icon } from '@material-ui/core'
+
+const RESUME_LINK =
+  'https://drive.google.com/file/d/12EXcZKEdHRtsq5IRlVFSxFGuM6hDZgE1/view?usp=sharing'
 ---
 
-<section id="about" class="bg-secondary text-white">
+<section id="about">
   <div class="m-auto max-w-[1140px] p-4 md:p-8">
     <GlitchText
       client:visible
@@ -11,6 +17,17 @@ import GlitchText from '../../components/GlitchText'
       as="h2"
       text="About Me"
     />
-    <AnimatedAbout client:visible />
+    <AnimatedAbout client:visible className="mb-12" />
+    <Statistics client:visible className="mb-12" />
+    <a
+      class="flex items-center justify-center"
+      href={RESUME_LINK}
+      target="_blank"
+    >
+      <Button color="tertiary" className="text-xl">
+        <Icon>download</Icon>
+        Download Resume
+      </Button>
+    </a>
   </div>
 </section>

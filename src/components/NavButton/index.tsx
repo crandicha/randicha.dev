@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon } from '@material-ui/core'
 import clsx from 'clsx'
 import { scrollToView } from '../../../utils/window'
+import styles from './index.module.css'
 
 const MENUS: { icon: string; target: string }[] = [
   {
@@ -47,7 +48,8 @@ const NavButton = () => {
   return (
     <div
       className={clsx(
-        'fixed bottom-5 left-[50%] flex h-[80px] translate-x-[-50%] cursor-pointer items-center justify-center  rounded-full bg-tertiary px-6 py-4 text-black duration-75 ease-in-out',
+        'fixed bottom-5 left-[50%] flex h-[80px] translate-x-[-50%] cursor-pointer items-center justify-center  rounded-full bg-tertiary px-6 py-4 text-black',
+        styles.navButton,
         isOpen ? 'w-[380px]' : 'w-[80px]'
       )}
     >
@@ -64,7 +66,7 @@ const NavButton = () => {
         <div
           className={clsx(
             'flex w-min items-center justify-center rounded-full p-2 text-white hover:scale-110 hover:bg-white hover:text-black active:scale-90 active:bg-opacity-70',
-            isOpen ? 'bg-secondary text-white' : 'block'
+            isOpen ? 'text-white' : 'block'
           )}
         >
           <Icon>{isOpen ? 'close' : 'menu'}</Icon>

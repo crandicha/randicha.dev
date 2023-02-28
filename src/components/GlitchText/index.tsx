@@ -20,7 +20,10 @@ const GlitchText = ({ text, as = DEFAULT_AS, ...props }: GlitchTextProps) => {
     const glitchInterval = setInterval(() => {
       const randomLetter = text?.split?.('')?.map((char, index) => {
         if (index < iteration || char === ' ') return char
-        return LETTERS[Math.floor(Math.random() * 26)]
+        const randomLetter = LETTERS[Math.floor(Math.random() * 26)]
+        return char === char?.toUpperCase?.()
+          ? randomLetter
+          : randomLetter?.toLowerCase?.()
       })
       if (iteration > text?.length) clearInterval(glitchInterval)
       setGlitchedText(randomLetter?.join?.(''))
