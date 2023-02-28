@@ -1,0 +1,68 @@
+---
+import WorkItem from './WorkItem'
+import { getImage } from '@astrojs/image'
+
+const { src: govtecEduSrc } = await getImage({
+  src: 'public/images/company/govtech.png',
+  alt: 'GovTech Edu',
+  width: 100,
+  height: 100,
+})
+const { src: bukalapakSrc } = await getImage({
+  src: 'public/images/company/bukalapak.png',
+  alt: 'Bukalapak',
+  width: 100,
+  height: 100,
+})
+const { src: gradinSrc } = await getImage({
+  src: 'public/images/company/gradin.png',
+  alt: 'Gradin',
+  width: 100,
+  height: 100,
+})
+const { src: CVBintangSemestaPanganSrc } = await getImage({
+  src: 'public/images/company/no-logo.png',
+  alt: 'CV Bintang Semesta Pangan',
+  width: 100,
+  height: 100,
+})
+---
+
+<div class="p-4 md:p-8">
+  <WorkItem
+    client:visible
+    position="left"
+    from="August 2021"
+    to="Now"
+    logo={govtecEduSrc || ''}
+    company="GovTech Edu"
+    title="Senior Frontend Engineer"
+  />
+  <WorkItem
+    client:visible
+    position="right"
+    from="July 2018"
+    to="July 2021"
+    logo={bukalapakSrc || ''}
+    company="Bukalapak"
+    title="Middle Frontend Engineer"
+  />
+  <WorkItem
+    client:visible
+    position="left"
+    from="Sept 2017"
+    to="Jun 2018"
+    logo={gradinSrc || ''}
+    company="Gradin"
+    title="Fullstack Web Developer"
+  />
+  <WorkItem
+    client:visible
+    position="right"
+    from="Jan 2016"
+    to="Jan 2017"
+    logo={CVBintangSemestaPanganSrc || ''}
+    company="CV Bintang Semesta Pangan"
+    title="Mobile App Developer (Thesis Project)"
+  />
+</div>
