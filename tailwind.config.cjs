@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#f8f8f8',
-        secondary: '#49BEAA',
-        tertiary: '#235789',
+        primary: '#fefbe9',
+        secondary: '#e1eedd',
+        tertiary: '#f0a04b',
       },
       fontFamily: {
         Inter: ['Inter', ...defaultTheme.fontFamily.sans],
