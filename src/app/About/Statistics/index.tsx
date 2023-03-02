@@ -1,13 +1,9 @@
 import clsx from 'clsx'
 import IncreasingNumber from '../../../components/IncreasingNumber'
-import { WORK_EXPERIENCES } from '../../../../data/general'
+import { WORK_EXPERIENCES, YEARS_OF_EXPERIENCE } from '../../../../data/general'
 
 export interface IStatisticsProps extends React.HTMLProps<HTMLDivElement> {}
 const Statistics = ({ className }: IStatisticsProps) => {
-  const yearsExp = Math.floor(
-    (new Date().getTime() - new Date('2017-09-01').getTime()) /
-      (1000 * 60 * 60 * 24 * 30 * 12)
-  )
   const companiesWorked = WORK_EXPERIENCES?.length
 
   return (
@@ -19,7 +15,7 @@ const Statistics = ({ className }: IStatisticsProps) => {
     >
       <div className="flex flex-col items-center justify-center gap-2">
         <div className="flex flex-row font-Montserrat text-3xl font-bold text-tertiary">
-          <IncreasingNumber number={yearsExp} />+
+          <IncreasingNumber number={YEARS_OF_EXPERIENCE} />+
         </div>
         <p className="text-center text-lg md:text-left">Years of Experience</p>
       </div>

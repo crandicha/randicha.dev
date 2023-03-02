@@ -66,3 +66,8 @@ export const WORK_EXPERIENCES: {
     logo: '',
   },
 ]
+
+export const YEARS_OF_EXPERIENCE = Math.floor(
+  (new Date().getTime() - new Date('2017-09-01').getTime()) /
+    (1000 * 60 * 60 * 24 * 30 * 12)
+)

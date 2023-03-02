@@ -2,6 +2,7 @@
 import '@fontsource/inter'
 import '@fontsource/montserrat/variable.css'
 import '@fontsource/poppins'
+import { WORK_EXPERIENCES, YEARS_OF_EXPERIENCE } from '../../data/general'
 export interface Props {
   title: string
 }
@@ -9,8 +10,10 @@ export interface Props {
 const { title } = Astro.props
 const baseUrl = 'https://randicha.dev'
 const siteName = 'randicha.dev'
-const description = 'Charles Randicha G. S. - Frontend Engineer'
 const url = baseUrl
+const yearOfExp = `${YEARS_OF_EXPERIENCE}+`
+const companyCount = WORK_EXPERIENCES?.length
+const description = `Passionate Software Engineer with ${yearOfExp}+ years of experience. I have worked in ${companyCount} companies including leading e-commerce unicorn in Indonesia & in the public sector, specifically for a digital transformation team for Indonesia's Ministry of Education .I am currently working as a ${WORK_EXPERIENCES[0].title} at ${WORK_EXPERIENCES[0].company}.`
 ---
 
 <!DOCTYPE html>
