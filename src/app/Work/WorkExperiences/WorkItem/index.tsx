@@ -149,7 +149,7 @@ const WorkITem = ({
             {title}
           </h3>
           <div
-            className="mt-8 flex h-8 w-[56px] cursor-pointer items-center justify-center rounded-full bg-tertiary p-2 text-white shadow-md hover:scale-105 hover:shadow-lg active:scale-90"
+            className="mt-8 flex h-8 w-[56px] cursor-pointer items-center justify-center rounded-full bg-tertiary p-2 text-white hover:scale-105 active:scale-90 active:shadow-inner"
             onClick={() => setIsExpanded((val) => !val)}
           >
             <Icon>{isExpanded ? 'expand_less' : 'expand_more'}</Icon>
