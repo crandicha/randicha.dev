@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import GlitchText from '../../../components/GlitchText'
 import IncreasingNumber from '../../../components/IncreasingNumber'
+import { WORK_EXPERIENCES } from '../../../../data/general'
 
 export interface IStatisticsProps extends React.HTMLProps<HTMLDivElement> {}
 const Statistics = ({ className }: IStatisticsProps) => {
@@ -8,7 +8,7 @@ const Statistics = ({ className }: IStatisticsProps) => {
     (new Date().getTime() - new Date('2017-09-01').getTime()) /
       (1000 * 60 * 60 * 24 * 30 * 12)
   )
-  const companiesWorked = 4
+  const companiesWorked = WORK_EXPERIENCES?.length
 
   return (
     <div
