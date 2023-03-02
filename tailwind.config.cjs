@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         Inter: ['Inter', ...defaultTheme.fontFamily.sans],
         Montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        Poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
     },
   },
