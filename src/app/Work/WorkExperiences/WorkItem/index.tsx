@@ -59,7 +59,7 @@ const WorkITem = ({
           >
             <div
               className={clsx(
-                'absolute flex h-full w-full flex-col items-center gap-[100px] overflow-hidden bg-secondary p-6 pt-[50px] shadow-md transition hover:shadow-xl',
+                'absolute flex h-full w-full flex-col items-center gap-[100px] overflow-hidden rounded-xl bg-secondary p-6 pt-[50px] shadow-md transition hover:shadow-xl',
                 styles.workcard
               )}
               id={company}
@@ -120,7 +120,7 @@ const WorkITem = ({
         </div>
       </div>
       <MotionInView
-        className="!flex min-h-[300px] w-[90%] max-w-[600px] flex-col items-center gap-[30px] bg-secondary p-6 pt-[60px] md:!hidden"
+        className="!flex min-h-[300px] w-[90%] max-w-[600px] flex-col items-center gap-[30px] rounded-xl bg-secondary p-6 pt-[60px] md:!hidden"
         once
         id={`${company}_mobile`}
         onHidden={{
