@@ -4,6 +4,7 @@ import GlitchText from '../../../../components/GlitchText'
 import MotionInView from '../../../../components/MotionInView'
 import styles from './index.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Icon } from '@material-ui/core'
 interface WorkITemProps extends React.HTMLProps<HTMLDivElement> {
   position: 'left' | 'right'
   from: string
@@ -22,17 +23,25 @@ const WorkITem = ({
   title = 'Frontend Engineer',
   children,
 }: WorkITemProps) => {
-  const [isHovered, setIsHovered] = React.useState(false)
+  const [isExpanded, setIsExpanded] = React.useState(false)
 
   React.useEffect(() => {
     const element = document.getElementById(company)
+    const element2 = document.getElementById(company + '_mobile')
+    const BASE_ADDITIONAL_HEIGHT = 24
     if (element) {
-      const additionalHeight = children ? 24 : 0
-      element.style.height = isHovered
+      const additionalHeight = children ? BASE_ADDITIONAL_HEIGHT : 0
+      element.style.height = isExpanded
         ? `${element.scrollHeight + additionalHeight}px`
         : '300px'
     }
-  }, [isHovered])
+    if (element2) {
+      const additionalHeight = children ? BASE_ADDITIONAL_HEIGHT : 0
+      element2.style.height = isExpanded
+        ? `${element2.scrollHeight + additionalHeight}px`
+        : '300px'
+    }
+  }, [isExpanded])
 
   return (
     <>
@@ -61,8 +70,8 @@ const WorkITem = ({
                 styles.workcard
               )}
               id={company}
-              onMouseOver={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseOver={() => setIsExpanded(true)}
+              onMouseLeave={() => setIsExpanded(false)}
             >
               <div className="flex flex-col items-center justify-center">
                 <img src={logo} alt={company} />
@@ -74,7 +83,7 @@ const WorkITem = ({
                 </h3>
               </div>
               <AnimatePresence>
-                {isHovered && (
+                {isExpanded && (
                   <motion.div
                     initial={{
                       opacity: 0,
@@ -117,6 +126,53 @@ const WorkITem = ({
           />
         </div>
       </div>
+      <MotionInView
+        className={clsx(
+          '!flex min-h-[300px] w-[90%] max-w-[600px] flex-col items-center gap-[80px] bg-secondary p-6 pt-[60px] md:!hidden',
+          styles.workcard
+        )}
+        once
+        id={`${company}_mobile`}
+        onHidden={{
+          opacity: 0,
+          translateX: position === 'left' ? '-50px' : '50px',
+        }}
+        onVisible={{
+          opacity: 1,
+          translateX: '0px',
+        }}
+      >
+        <div className="flex flex-col items-center justify-center">
+          <img src={logo} alt={company} />
+          <h3 className="font-Montserrat text-2xl font-bold">{company}</h3>
+          <h3 className="text-center font-Montserrat text-xl font-bold">
+            {title}
+          </h3>
+          <div
+            className="mt-8 flex h-8 w-[56px] cursor-pointer items-center justify-center rounded-full bg-tertiary p-2 text-white shadow-md hover:scale-105 hover:shadow-lg active:scale-90"
+            onClick={() => setIsExpanded((val) => !val)}
+          >
+            <Icon>{isExpanded ? 'expand_less' : 'expand_more'}</Icon>
+          </div>
+        </div>
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+            >
+              {children}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </MotionInView>
     </>
   )
 }

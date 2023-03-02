@@ -39,6 +39,7 @@ const MotionInView = ({
   onVisible2XL,
   className,
   children,
+  id,
 }: MotionInViewProps) => {
   const controls = useAnimation()
   const ref = useRef(null)
@@ -94,6 +95,7 @@ const MotionInView = ({
       className={className}
       variants={variants}
       transition={transition}
+      id={id}
     >
       {children}
     </motion.div>
