@@ -18,7 +18,7 @@ const Statistics = ({ className }: IStatisticsProps) => {
       )}
     >
       <div className="flex flex-col items-center justify-center gap-2">
-        <div className="flex flex-row font-MavenPro text-3xl font-bold text-tertiary">
+        <div className="flex flex-row font-Montserrat text-3xl font-bold text-tertiary">
           <IncreasingNumber number={yearsExp} />+
         </div>
         <p className="text-center text-lg md:text-left">Years of Experience</p>
@@ -26,7 +26,7 @@ const Statistics = ({ className }: IStatisticsProps) => {
       <div className="flex flex-col items-center justify-center gap-2">
         <IncreasingNumber
           number={companiesWorked}
-          className="font-MavenPro text-3xl font-bold text-tertiary"
+          className="font-Montserrat text-3xl font-bold text-tertiary"
         />
         <p className="text-center text-lg md:text-left">Companies Worked</p>
       </div>

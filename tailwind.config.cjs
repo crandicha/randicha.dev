@@ -13,7 +13,7 @@ module.exports = {
       },
       fontFamily: {
         Inter: ['Inter', ...defaultTheme.fontFamily.sans],
-        MavenPro: ['Maven Pro', ...defaultTheme.fontFamily.sans],
+        Montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
       },
     },
   },

@@ -42,8 +42,8 @@ const WorkITem = ({
           >
             <div className="flex h-full w-full flex-col items-center justify-center bg-secondary p-4 shadow-md transition hover:shadow-xl">
               <img src={logo} alt={company} />
-              <h3 className="font-MavenPro text-2xl font-bold">{company}</h3>
-              <h3 className="text-center font-MavenPro text-xl font-bold">
+              <h3 className="font-Montserrat text-2xl font-bold">{company}</h3>
+              <h3 className="text-center font-Montserrat text-xl font-bold">
                 {title}
               </h3>
             </div>
