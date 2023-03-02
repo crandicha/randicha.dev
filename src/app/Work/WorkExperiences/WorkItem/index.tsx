@@ -27,18 +27,11 @@ const WorkITem = ({
 
   React.useEffect(() => {
     const element = document.getElementById(company)
-    const element2 = document.getElementById(company + '_mobile')
     const BASE_ADDITIONAL_HEIGHT = 24
     if (element) {
       const additionalHeight = children ? BASE_ADDITIONAL_HEIGHT : 0
       element.style.height = isExpanded
         ? `${element.scrollHeight + additionalHeight}px`
-        : '300px'
-    }
-    if (element2) {
-      const additionalHeight = children ? BASE_ADDITIONAL_HEIGHT : 0
-      element2.style.height = isExpanded
-        ? `${element2.scrollHeight + additionalHeight}px`
         : '300px'
     }
   }, [isExpanded])
@@ -75,7 +68,7 @@ const WorkITem = ({
             >
               <div className="flex flex-col items-center justify-center">
                 <img src={logo} alt={company} />
-                <h3 className="font-Montserrat text-2xl font-bold">
+                <h3 className="text-center font-Montserrat text-2xl font-bold">
                   {company}
                 </h3>
                 <h3 className="text-center font-Montserrat text-xl font-bold">
@@ -127,10 +120,7 @@ const WorkITem = ({
         </div>
       </div>
       <MotionInView
-        className={clsx(
-          '!flex min-h-[300px] w-[90%] max-w-[600px] flex-col items-center gap-[80px] bg-secondary p-6 pt-[60px] md:!hidden',
-          styles.workcard
-        )}
+        className="!flex min-h-[300px] w-[90%] max-w-[600px] flex-col items-center gap-[30px] bg-secondary p-6 pt-[60px] md:!hidden"
         once
         id={`${company}_mobile`}
         onHidden={{
@@ -144,20 +134,22 @@ const WorkITem = ({
       >
         <div className="flex flex-col items-center justify-center">
           <img src={logo} alt={company} />
-          <h3 className="font-Montserrat text-2xl font-bold">{company}</h3>
+          <h3 className="text-center font-Montserrat text-2xl font-bold">
+            {company}
+          </h3>
           <h3 className="text-center font-Montserrat text-xl font-bold">
             {title}
           </h3>
-          <div
-            className="mt-8 flex h-8 w-[56px] cursor-pointer items-center justify-center rounded-full bg-tertiary p-2 text-white hover:scale-105 active:scale-90 active:shadow-inner"
-            onClick={() => setIsExpanded((val) => !val)}
-          >
-            <Icon>{isExpanded ? 'expand_less' : 'expand_more'}</Icon>
-          </div>
+          <p className="font-bold">
+            {from} - {to}
+          </p>
         </div>
         <AnimatePresence>
           {isExpanded && (
             <motion.div
+              transition={{
+                duration: 0.05,
+              }}
               initial={{
                 opacity: 0,
               }}
@@ -172,6 +164,14 @@ const WorkITem = ({
             </motion.div>
           )}
         </AnimatePresence>
+        <div
+          className={
+            'flex h-8 w-full cursor-pointer items-center justify-center rounded-full bg-tertiary p-2 text-white hover:scale-105 active:scale-90 active:shadow-inner'
+          }
+          onClick={() => setIsExpanded((val) => !val)}
+        >
+          <Icon>{isExpanded ? 'expand_less' : 'expand_more'}</Icon>
+        </div>
       </MotionInView>
     </>
   )
