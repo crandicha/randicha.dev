@@ -1,7 +1,9 @@
 import clsx from 'clsx'
+import React from 'react'
 import GlitchText from '../../../../components/GlitchText'
 import MotionInView from '../../../../components/MotionInView'
-
+import styles from './index.module.css'
+import { AnimatePresence, motion } from 'framer-motion'
 interface WorkITemProps extends React.HTMLProps<HTMLDivElement> {
   position: 'left' | 'right'
   from: string
@@ -18,16 +20,30 @@ const WorkITem = ({
   company = 'GovTech Edu',
   logo,
   title = 'Frontend Engineer',
+  children,
 }: WorkITemProps) => {
+  const [isHovered, setIsHovered] = React.useState(false)
+
+  React.useEffect(() => {
+    const element = document.getElementById(company)
+    if (element) {
+      // resize height based on content height
+      const additionalHeight = children ? 24 : 0
+      element.style.height = isHovered
+        ? `${element.scrollHeight + additionalHeight}px`
+        : '300px'
+    }
+  }, [isHovered])
+
   return (
     <>
       <div
         className={clsx(
-          'hidden min-h-[300px] md:!flex',
+          'relative hidden min-h-[300px] hover:z-[99] md:!flex',
           position === 'left' ? 'flex-row' : 'flex-row-reverse'
         )}
       >
-        <div className="flex flex-[3_3_0] items-center">
+        <div className="relative flex flex-[3_3_0] items-center">
           <MotionInView
             once
             className="h-full w-full"
@@ -40,12 +56,41 @@ const WorkITem = ({
               opacity: 1,
             }}
           >
-            <div className="flex h-full w-full flex-col items-center justify-center bg-secondary p-4 shadow-md transition hover:shadow-xl">
-              <img src={logo} alt={company} />
-              <h3 className="font-Montserrat text-2xl font-bold">{company}</h3>
-              <h3 className="text-center font-Montserrat text-xl font-bold">
-                {title}
-              </h3>
+            <div
+              className={clsx(
+                'absolute flex h-full w-full flex-col items-center gap-[100px] overflow-hidden bg-secondary p-6 pt-[50px] shadow-md transition hover:shadow-xl',
+                styles.workcard
+              )}
+              id={company}
+              onMouseOver={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="flex flex-col items-center justify-center">
+                <img src={logo} alt={company} />
+                <h3 className="font-Montserrat text-2xl font-bold">
+                  {company}
+                </h3>
+                <h3 className="text-center font-Montserrat text-xl font-bold">
+                  {title}
+                </h3>
+              </div>
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                    }}
+                    animate={{
+                      opacity: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                    }}
+                  >
+                    {children}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </MotionInView>
         </div>
