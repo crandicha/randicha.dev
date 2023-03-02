@@ -27,7 +27,6 @@ const WorkITem = ({
   React.useEffect(() => {
     const element = document.getElementById(company)
     if (element) {
-      // resize height based on content height
       const additionalHeight = children ? 24 : 0
       element.style.height = isHovered
         ? `${element.scrollHeight + additionalHeight}px`

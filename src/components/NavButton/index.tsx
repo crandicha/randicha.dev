@@ -48,7 +48,7 @@ const NavButton = () => {
   return (
     <div
       className={clsx(
-        'fixed bottom-5 left-[50%] flex h-[80px] translate-x-[-50%] cursor-pointer items-center justify-center  rounded-full bg-tertiary px-6 py-4 text-black',
+        'fixed bottom-5 left-[50%] z-[999] flex h-[80px] translate-x-[-50%] cursor-pointer items-center  justify-center rounded-full bg-tertiary px-6 py-4 text-black',
         styles.navButton,
         isOpen ? 'w-[380px]' : 'w-[80px]'
       )}
