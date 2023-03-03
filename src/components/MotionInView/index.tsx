@@ -40,6 +40,7 @@ const MotionInView = ({
   className,
   children,
   id,
+  style,
 }: MotionInViewProps) => {
   const controls = useAnimation()
   const ref = useRef(null)
@@ -96,6 +97,7 @@ const MotionInView = ({
       variants={variants}
       transition={transition}
       id={id}
+      style={style}
     >
       {children}
     </motion.div>

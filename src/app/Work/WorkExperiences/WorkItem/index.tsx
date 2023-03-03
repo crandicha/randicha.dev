@@ -12,6 +12,7 @@ interface WorkITemProps extends React.HTMLProps<HTMLDivElement> {
   company: string
   logo: string
   title: string
+  indexPosition?: 'first' | 'middle' | 'last'
 }
 
 const WorkITem = ({
@@ -21,6 +22,7 @@ const WorkITem = ({
   company = 'GovTech Edu',
   logo,
   title = 'Frontend Engineer',
+  indexPosition = 'middle',
   children,
 }: WorkITemProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false)
@@ -96,22 +98,44 @@ const WorkITem = ({
           </MotionInView>
         </div>
         <div className="relative flex flex-[1_1_0] items-center">
-          <div className="h-[1px] w-full border-t border-black"></div>
-          <div
+          <MotionInView
+            once
+            onHidden={{
+              scaleX: 0,
+            }}
+            onVisible={{
+              scaleX: 1,
+            }}
+            className="w-full"
+            style={{ transformOrigin: position === 'left' ? 'right' : 'left' }}
+          >
+            <div className="h-[1px] w-full border-t-2 border-tertiary"></div>
+          </MotionInView>
+          <MotionInView
+            once
+            onHidden={{
+              opacity: 0,
+            }}
+            onVisible={{
+              opacity: 1,
+            }}
             className={clsx(
-              'absolute  h-3 w-3 rounded-full bg-tertiary',
+              'absolute',
               position === 'left' ? 'right-[-6px]' : 'left-[-6px]'
             )}
-          ></div>
+          >
+            <div className="h-3 w-3 rounded-full bg-tertiary"></div>
+          </MotionInView>
         </div>
-        <div
-          className={clsx(
-            'flex flex-[4_4_0] items-center justify-center break-words',
-            position === 'left'
-              ? 'border-l border-l-black'
-              : 'border-r border-r-black'
-          )}
-        >
+        <div className="relative flex flex-[4_4_0] items-center justify-center break-words">
+          <div
+            className={clsx(
+              'absolute h-full border-r border-l border-tertiary',
+              position === 'left' ? 'left-[-1px]' : 'right-[-1px]',
+              indexPosition === 'first' && 'bottom-0 h-1/2',
+              indexPosition === 'last' && 'top-0 h-1/2'
+            )}
+          ></div>
           <GlitchText
             as="p"
             text={`${from} - ${to}`}

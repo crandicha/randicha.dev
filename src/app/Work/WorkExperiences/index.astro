@@ -34,6 +34,12 @@ const parsedWorkExperiences = WORK_EXPERIENCES.map((workExperience, index) => ({
   ...workExperience,
   logo: SRCS[index],
 }))
+
+const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
+  if (index === 0) return 'first'
+  if (index === parsedWorkExperiences.length - 1) return 'last'
+  return 'middle'
+}
 ---
 
 <div
@@ -50,6 +56,7 @@ const parsedWorkExperiences = WORK_EXPERIENCES.map((workExperience, index) => ({
           logo={logo || ''}
           company={company}
           title={title}
+          indexPosition={getIndexPosition(index)}
         >
           <ul class="ml-4 list-disc">
             {description?.map((desc) => (
