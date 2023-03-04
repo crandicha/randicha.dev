@@ -21,9 +21,10 @@ const GlitchText = ({
     className: 'hidden',
   }
 
-  const doGlitchEffect = () => {
-    let iteration = 0
-    const glitchInterval = setInterval(() => {
+  let iteration = 0
+
+  const drawGlitchEffect = () => {
+    setTimeout(() => {
       const randomLetter = text?.split?.('')?.map((char, index) => {
         if (index < iteration || char === ' ') return char
         const randomLetter = LETTERS[Math.floor(Math.random() * 26)]
@@ -31,15 +32,15 @@ const GlitchText = ({
           ? randomLetter
           : randomLetter?.toLowerCase?.()
       })
-      if (iteration > text?.length) clearInterval(glitchInterval)
       setGlitchedText(randomLetter?.join?.(''))
       iteration++
-    }, 30)
+      if (iteration <= text?.length) requestAnimationFrame(drawGlitchEffect)
+    }, 1000 / 60)
   }
 
   React.useEffect(() => {
     setTimeout(() => {
-      doGlitchEffect()
+      window.requestAnimationFrame(drawGlitchEffect)
     }, delay || 0)
   }, [])
   return (
