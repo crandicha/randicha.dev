@@ -1,6 +1,46 @@
 ---
 import GlitchText from '../../components/GlitchText'
 import AnimatedContact from './AnimatedContact'
+import { GITHUB_URL, LINKEDIN_URL, PHONE_NUMBER } from '../../../data/general'
+import { getWhatsappUrl } from '../../../utils/whatsapp'
+import { getImage } from '@astrojs/image'
+import AnimatedLink from './AnimatedLink'
+
+const LINKS = await Promise.all([
+  {
+    name: 'LinkedIn',
+    src: await getImage({
+      src: 'svg/contact/LinkedIn.svg',
+      alt: 'LinkedIn',
+      width: 32,
+      height: 32,
+    }).then(({ src }) => src),
+    url: LINKEDIN_URL,
+  },
+  {
+    name: 'Github',
+    src: await getImage({
+      src: 'svg/contact/Github.svg',
+      alt: 'LinkedIn',
+      width: 32,
+      height: 32,
+    }).then(({ src }) => src),
+    url: GITHUB_URL,
+  },
+  {
+    name: 'Whatsapp',
+    src: await getImage({
+      src: 'svg/contact/Whatsapp.svg',
+      alt: 'LinkedIn',
+      width: 32,
+      height: 32,
+    }).then(({ src }) => src),
+    url: getWhatsappUrl({
+      number: PHONE_NUMBER,
+      text: 'Hi, I saw your portfolio and I would like to talk to you about a job opportunity.',
+    }),
+  },
+])
 
 const { class: klass } = Astro.props
 ---
@@ -16,5 +56,18 @@ const { class: klass } = Astro.props
       className="font-Montserrat font-bold text-4xl md:text-5xl text-tertiary"
     />
     <AnimatedContact client:visible open />
+    <div class="flex flex-row gap-4">
+      {
+        LINKS?.map(({ name, src, url }, index) => (
+          <AnimatedLink
+            client:visible
+            name={name}
+            src={src}
+            url={url}
+            index={index}
+          />
+        ))
+      }
+    </div>
   </div>
 </section>

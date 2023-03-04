@@ -4,37 +4,17 @@ import { getImage } from '@astrojs/image'
 import { WORK_EXPERIENCES } from '../../../../data/general'
 import WorkExperienceLine from './WorkExperienceLine'
 
-const { src: govtecEduSrc } = await getImage({
-  src: 'images/company/govtech.png',
-  alt: 'GovTech Edu',
-  width: 100,
-  height: 100,
-})
-const { src: bukalapakSrc } = await getImage({
-  src: 'images/company/bukalapak.png',
-  alt: 'Bukalapak',
-  width: 100,
-  height: 100,
-})
-const { src: gradinSrc } = await getImage({
-  src: 'images/company/gradin.png',
-  alt: 'Gradin',
-  width: 100,
-  height: 100,
-})
-const { src: CVBintangSemestaPanganSrc } = await getImage({
-  src: 'images/company/no-logo.png',
-  alt: 'CV Bintang Semesta Pangan',
-  width: 100,
-  height: 100,
-})
-
-const SRCS = [govtecEduSrc, bukalapakSrc, gradinSrc, CVBintangSemestaPanganSrc]
-
-const parsedWorkExperiences = WORK_EXPERIENCES.map((workExperience, index) => ({
-  ...workExperience,
-  logo: SRCS[index],
-}))
+const parsedWorkExperiences = await Promise.all(
+  WORK_EXPERIENCES.map(async (workExperience, index) => ({
+    ...workExperience,
+    logo: await getImage({
+      src: workExperience.logo,
+      alt: workExperience.company,
+      width: 100,
+      height: 100,
+    }).then(({ src }) => src),
+  }))
+)
 
 const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
   if (index === 0) return 'first'

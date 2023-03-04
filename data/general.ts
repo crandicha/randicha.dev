@@ -20,7 +20,7 @@ export const WORK_EXPERIENCES: {
       'Applying Test Driven Development principle on every work',
       'Maintaining code quality with both unit',
     ],
-    logo: '',
+    logo: 'images/company/govtech.png',
   },
   {
     company: 'Bukalapak',
@@ -38,7 +38,7 @@ export const WORK_EXPERIENCES: {
       'Ensuring code compatibility across wide array of supported browsers.',
       'Mentoring & giving advices to fellow frontend engineers',
     ],
-    logo: '',
+    logo: 'images/company/bukalapak.png',
   },
   {
     company: 'Gradin',
@@ -53,7 +53,7 @@ export const WORK_EXPERIENCES: {
       'Maintaining internal hosting server',
       'Mentoring & giving advices to fellow engineers',
     ],
-    logo: '',
+    logo: 'images/company/gradin.png',
   },
   {
     company: 'CV Bintang Semesta Pangan',
@@ -63,7 +63,7 @@ export const WORK_EXPERIENCES: {
     description: [
       'Built a warehouse management system apps with the capability to calculate available inventory space, best product placement location based on product dimension and amount',
     ],
-    logo: '',
+    logo: 'images/company/no-logo.png',
   },
 ]
 
@@ -73,3 +73,6 @@ export const YEARS_OF_EXPERIENCE = Math.floor(
 )
 
 export const EMAIL_ADDRESS = 'charles.randicha@gmail.com'
+export const GITHUB_URL = 'https://github.com/crandicha'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/charlesrandicha/'
+export const PHONE_NUMBER = '6285163742321'
