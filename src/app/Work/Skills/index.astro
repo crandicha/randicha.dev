@@ -1,0 +1,61 @@
+---
+import GlitchText from '../../../components/GlitchText'
+import SkillCard from './SkillCard/index.astro'
+
+const FRONTEND_SKILLS = [
+  'Javascript',
+  'Typescript',
+  'React',
+  'Next.js',
+  'Vue',
+  'Nuxt',
+  'Angular',
+  'Astro',
+  'Jest',
+  'TailwindCSS',
+  'SASS',
+  'GraphQL',
+  'RxJs',
+  'PWA',
+] as const
+
+export type TFrontendSkills = (typeof FRONTEND_SKILLS)[number]
+
+const TOOLS = [
+  'VSCode',
+  'Git',
+  'Github',
+  'Gitlab',
+  'Corel Draw',
+  'Kubernetes',
+  'Webpack',
+  'Vite',
+  'Google Cloud',
+  'ESLint',
+  'Prettier',
+  'Docker',
+] as const
+
+export type TToolsSkills = (typeof TOOLS)[number]
+---
+
+<div>
+  <GlitchText
+    client:visible
+    as="h3"
+    text="Frontend"
+    className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
+  />
+  <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
+    {FRONTEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
+  </div>
+  <GlitchText
+    client:visible
+    as="h3"
+    text="Tools"
+    className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
+  />
+  <div class="flex flex-row flex-wrap justify-center gap-4">
+    {TOOLS?.map((skill) => <SkillCard skill={skill} />)}
+  </div>
+</div>

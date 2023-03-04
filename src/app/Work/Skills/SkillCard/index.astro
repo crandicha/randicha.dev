@@ -1,0 +1,51 @@
+---
+import { Picture } from '@astrojs/image/components'
+import type { TFrontendSkills, TToolsSkills } from '../index.astro'
+
+const { skill } = Astro.props
+
+const getAspectRation = (skill: TFrontendSkills | TToolsSkills) => {
+  if (['React', 'Corel Draw', 'ESLint'].includes(skill)) return 1.12 / 1
+  if (['Google Cloud'].includes(skill)) return 1.24 / 1
+  if (['SASS'].includes(skill)) return 1.35 / 1
+  if (['Next.js'].includes(skill)) return 2 / 1
+  if (['Astro'].includes(skill)) return 3 / 1
+  if (['Nuxt'].includes(skill)) return 4.3 / 1
+  if (['Kubernetes'].includes(skill)) return 6 / 1
+
+  return 1
+}
+---
+
+<div
+  class="skill-item mih-h-[156px] relative flex flex-[0_0_136px] flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-secondary bg-white p-4 hover:scale-110 md:min-h-[186px] md:flex-[0_0_186px]"
+>
+  <div class="flex flex-1 items-center justify-center">
+    <Picture
+      src={`/svg/skill/${skill}.svg`}
+      alt={skill}
+      widths={[100, 150]}
+      aspectRatio={getAspectRation(skill)}
+      sizes="(max-width: 768px) 100px, (min-width: 768px) 150px"
+      class="w-[150px]"
+    />
+  </div>
+  <div class="mt-4 text-center font-Montserrat font-bold md:hidden">
+    {skill}
+  </div>
+  <div
+    class="skill-item-description absolute top-0 left-0 flex h-full w-full items-center justify-center rounded-lg bg-secondary font-Montserrat font-bold"
+  >
+    <div>{skill}</div>
+  </div>
+</div>
+<style>
+  .skill-item:hover > .skill-item-description {
+    transform: translateY(0%);
+  }
+
+  .skill-item-description {
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
