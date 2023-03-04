@@ -17,7 +17,7 @@ const AnimatedAbout = ({ className }: IAnimatedAboutProps) => {
         }}
       >
         <p className="text-center text-lg md:text-left">
-          Self-Teach tech enthusiast with years of experience as frontend
+          Self-teach tech enthusiast with years of experience as frontend
           software engineer, backed by knowledge and experience building several
           web applications for a leading e-commerce unicorn in Indonesia & in
           the public sector, specifically for a digital transformation team for
