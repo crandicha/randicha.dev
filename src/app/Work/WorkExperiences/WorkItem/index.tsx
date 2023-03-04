@@ -109,7 +109,7 @@ const WorkITem = ({
             className="w-full"
             style={{ transformOrigin: position === 'left' ? 'right' : 'left' }}
           >
-            <div className="h-[1px] w-full border-t-2 border-tertiary"></div>
+            <div className="h-[1px] w-full border-t-2 border-secondary"></div>
           </MotionInView>
           <MotionInView
             once
@@ -121,7 +121,7 @@ const WorkITem = ({
             }}
             className={clsx(
               'absolute',
-              position === 'left' ? 'right-[-6px]' : 'left-[-6px]'
+              position === 'left' ? 'right-[-7px]' : 'left-[-5px]'
             )}
           >
             <div className="h-3 w-3 rounded-full bg-tertiary"></div>
