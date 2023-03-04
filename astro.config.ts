@@ -12,8 +12,6 @@ import mdx from '@astrojs/mdx'
 // https://astro.build/config
 import image from '@astrojs/image'
 
-import vercel from '@astrojs/vercel/serverless'
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -24,6 +22,4 @@ export default defineConfig({
       serviceEntryPoint: '@astrojs/image/sharp',
     }),
   ],
-  output: 'server',
-  adapter: vercel(),
 })
