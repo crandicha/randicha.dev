@@ -2,6 +2,7 @@
 import WorkItem from './WorkItem'
 import { getImage } from '@astrojs/image'
 import { WORK_EXPERIENCES } from '../../../../data/general'
+import WorkExperienceLine from './WorkExperienceLine'
 
 const { src: govtecEduSrc } = await getImage({
   src: 'images/company/govtech.png',
@@ -43,8 +44,9 @@ const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
 ---
 
 <div
-  class="flex flex-col items-center justify-center gap-4 p-4 md:block md:gap-0 md:p-8"
+  class="relative flex flex-col items-center justify-center gap-4 p-4 md:block md:gap-0 md:p-8"
 >
+  <WorkExperienceLine client:visible />
   {
     parsedWorkExperiences?.map(
       ({ company, title, from, to, description, logo }, index) => (

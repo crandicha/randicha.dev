@@ -2,12 +2,18 @@ import React from 'react'
 
 interface GlitchTextProps extends React.HTMLProps<HTMLDivElement> {
   text: string
+  delay?: number
 }
 
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 const DEFAULT_AS = 'div'
-const GlitchText = ({ text, as = DEFAULT_AS, ...props }: GlitchTextProps) => {
+const GlitchText = ({
+  text,
+  as = DEFAULT_AS,
+  delay,
+  ...props
+}: GlitchTextProps) => {
   const [glitchedText, setGlitchedText] = React.useState<string>(text as string)
   const Component = as
   const hiddenProps = {
@@ -32,7 +38,9 @@ const GlitchText = ({ text, as = DEFAULT_AS, ...props }: GlitchTextProps) => {
   }
 
   React.useEffect(() => {
-    doGlitchEffect()
+    setTimeout(() => {
+      doGlitchEffect()
+    }, delay || 0)
   }, [])
   return (
     <>

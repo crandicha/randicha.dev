@@ -46,7 +46,7 @@ const WorkITem = ({
           position === 'left' ? 'flex-row' : 'flex-row-reverse'
         )}
       >
-        <div className="relative flex flex-[3_3_0] items-center">
+        <div className="relative flex flex-[3_3_0] items-center hover:z-[99] hover:scale-110">
           <MotionInView
             once
             className="h-full w-full"
@@ -128,19 +128,22 @@ const WorkITem = ({
           </MotionInView>
         </div>
         <div className="relative flex flex-[4_4_0] items-center justify-center break-words">
-          <div
-            className={clsx(
-              'absolute h-full border-r border-l border-tertiary',
-              position === 'left' ? 'left-[-1px]' : 'right-[-1px]',
-              indexPosition === 'first' && 'bottom-0 h-1/2',
-              indexPosition === 'last' && 'top-0 h-1/2'
-            )}
-          ></div>
-          <GlitchText
-            as="p"
-            text={`${from} - ${to}`}
-            className="text-xl font-bold"
-          />
+          <MotionInView
+            once
+            onHidden={{
+              opacity: 0,
+            }}
+            onVisible={{
+              opacity: 1,
+            }}
+          >
+            <GlitchText
+              delay={200}
+              as="p"
+              text={`${from} - ${to}`}
+              className="text-xl font-bold"
+            />
+          </MotionInView>
         </div>
       </div>
       <MotionInView
