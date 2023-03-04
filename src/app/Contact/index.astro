@@ -1,0 +1,20 @@
+---
+import GlitchText from '../../components/GlitchText'
+import AnimatedContact from './AnimatedContact'
+
+const { class: klass } = Astro.props
+---
+
+<section id="contact" class={'bg-secondary pb-[90px] ' + klass}>
+  <div
+    class="m-auto flex max-w-[1140px] flex-col items-center justify-center gap-10 p-10 md:gap-12 md:p-12"
+  >
+    <GlitchText
+      as="h2"
+      text="Lets Get In Touch"
+      client:visible
+      className="font-Montserrat font-bold text-4xl md:text-5xl text-tertiary"
+    />
+    <AnimatedContact client:visible open />
+  </div>
+</section>

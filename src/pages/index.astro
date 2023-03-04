@@ -3,14 +3,16 @@ import Layout from '../layouts/Layout.astro'
 import Home from '../app/Home/index.astro'
 import About from '../app/About/index.astro'
 import Work from '../app/Work/index.astro'
+import Contact from '../app/Contact/index.astro'
 import NavButton from '../components/NavButton'
 ---
 
 <Layout title="Charles Randicha G. S. - Frontend Engineer">
-  <main class="min-h-100vh pb-[90px]">
+  <main class="min-h-100vh">
     <Home />
     <About />
     <Work />
+    <Contact class="mt-[100px]" />
   </main>
   <NavButton client:visible />
 </Layout>

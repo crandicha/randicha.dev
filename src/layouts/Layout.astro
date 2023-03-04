@@ -2,6 +2,8 @@
 import '@fontsource/inter'
 import '@fontsource/montserrat/variable.css'
 import '@fontsource/poppins'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
 import { WORK_EXPERIENCES, YEARS_OF_EXPERIENCE } from '../../data/general'
 export interface Props {
   title: string
@@ -80,54 +82,61 @@ const description = `Passionate Software Engineer with ${YEARS_OF_EXPERIENCE}+ y
   </head>
   <body>
     <slot />
+    <ToastContainer
+      client:load
+      position="top-center"
+      autoClose={3000}
+      hideProgressBar
+      newestOnTop
+    />
   </body>
+  <style is:global>
+    @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+    @keyframes shimmer {
+      0% {
+        background-position: -250px 0;
+      }
+      100% {
+        background-position: 500px 0;
+      }
+    }
+
+    @tailwind utilities;
+
+    @layer utilities {
+      .text-gradient {
+        @apply bg-gradient-to-r from-purple-400 via-pink-600 to-purple-400 bg-clip-text text-transparent;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+      }
+      .shimmer {
+        animation: shimmer 5s infinite linear;
+      }
+    }
+    :root {
+      --color-primary: #f6f5f5;
+      --color-primary-foreground: black;
+      --color-primary-border: black;
+      --color-primary-hover: #e9e8e8;
+      --color-primary-active: #d4d4d4;
+      --color-secondary: #d3e0ea;
+      --color-secondary-foreground: black;
+      --color-secondary-border: none;
+      --color-secondary-hover: #bfcdd7;
+      --color-secondary-active: #a4b1bb;
+      --color-tertiary: #1687a7;
+      --color-tertiary-foreground: white;
+      --color-tertiary-border: none;
+      --color-tertiary-hover: #136f88;
+      --color-tertiary-active: #0e5265;
+    }
+    html {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background-color: var(--color-primary);
+    }
+    code {
+      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+  </style>
 </html>
-<style is:global>
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-  @keyframes shimmer {
-    0% {
-      background-position: -250px 0;
-    }
-    100% {
-      background-position: 500px 0;
-    }
-  }
-
-  @tailwind utilities;
-
-  @layer utilities {
-    .text-gradient {
-      @apply bg-gradient-to-r from-purple-400 via-pink-600 to-purple-400 bg-clip-text text-transparent;
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-    }
-    .shimmer {
-      animation: shimmer 5s infinite linear;
-    }
-  }
-  :root {
-    --color-primary: #f6f5f5;
-    --color-primary-foreground: black;
-    --color-primary-border: black;
-    --color-primary-hover: #e9e8e8;
-    --color-primary-active: #d4d4d4;
-    --color-secondary: #d3e0ea;
-    --color-secondary-foreground: black;
-    --color-secondary-border: none;
-    --color-secondary-hover: #bfcdd7;
-    --color-secondary-active: #a4b1bb;
-    --color-tertiary: #1687a7;
-    --color-tertiary-foreground: white;
-    --color-tertiary-border: none;
-    --color-tertiary-hover: #136f88;
-    --color-tertiary-active: #0e5265;
-  }
-  html {
-    font-family: 'Poppins', system-ui, sans-serif;
-    background-color: var(--color-primary);
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>
