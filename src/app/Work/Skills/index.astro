@@ -1,42 +1,7 @@
 ---
 import GlitchText from '../../../components/GlitchText'
 import SkillCard from './SkillCard/index.astro'
-
-const FRONTEND_SKILLS = [
-  'Javascript',
-  'Typescript',
-  'React',
-  'Next.js',
-  'Vue',
-  'Nuxt',
-  'Angular',
-  'Astro',
-  'Jest',
-  'TailwindCSS',
-  'SASS',
-  'GraphQL',
-  'RxJs',
-  'PWA',
-] as const
-
-export type TFrontendSkills = (typeof FRONTEND_SKILLS)[number]
-
-const TOOLS = [
-  'VSCode',
-  'Git',
-  'Github',
-  'Gitlab',
-  'Corel Draw',
-  'Kubernetes',
-  'Webpack',
-  'Vite',
-  'Google Cloud',
-  'ESLint',
-  'Prettier',
-  'Docker',
-] as const
-
-export type TToolsSkills = (typeof TOOLS)[number]
+import { FRONTEND_SKILLS, TOOLS } from './data'
 ---
 
 <div>
