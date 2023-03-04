@@ -1,6 +1,6 @@
 ---
 import { Picture } from '@astrojs/image/components'
-import GlitchText from '../../components/GlitchText'
+import ScrambleText from '../../components/ScrambleText'
 ---
 
 <section id="home">
@@ -14,14 +14,16 @@ import GlitchText from '../../components/GlitchText'
       >
         Charles Randicha Gunawan Santoso
       </h2>
-      <GlitchText
-        as="h3"
-        text="Frontend Engineer"
-        className="text-3xl font-bold md:text-4xl"
-        client:visible
-      />
-      <div class="text-xl md:text-2xl">
-        I build website with performance and maintainability in mind
+      <h3 class="text-3xl font-bold md:text-4xl">Frontend Engineer</h3>
+      <div
+        class="flex flex-row items-center justify-center gap-[6px] md:justify-start"
+      >
+        <p class="text-xl md:text-2xl">I build website that is</p>
+        <ScrambleText
+          client:visible
+          className="text-xl md:text-2xl text-tertiary font-bold font-Montserrat"
+          stringifiedTextArray="Performant,Responsive,Maintainable"
+        />
       </div>
     </div>
     <div>
