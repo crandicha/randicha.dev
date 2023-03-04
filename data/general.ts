@@ -20,7 +20,7 @@ export const WORK_EXPERIENCES: {
       'Applying Test Driven Development principle on every work',
       'Maintaining code quality with both unit',
     ],
-    logo: 'images/company/govtech.png',
+    logo: 'images/company/100/govtech.png',
   },
   {
     company: 'Bukalapak',
@@ -38,7 +38,7 @@ export const WORK_EXPERIENCES: {
       'Ensuring code compatibility across wide array of supported browsers.',
       'Mentoring & giving advices to fellow frontend engineers',
     ],
-    logo: 'images/company/bukalapak.png',
+    logo: 'images/company/100/bukalapak.png',
   },
   {
     company: 'Gradin',
@@ -53,7 +53,7 @@ export const WORK_EXPERIENCES: {
       'Maintaining internal hosting server',
       'Mentoring & giving advices to fellow engineers',
     ],
-    logo: 'images/company/gradin.png',
+    logo: 'images/company/100/gradin.png',
   },
   {
     company: 'CV Bintang Semesta Pangan',
@@ -63,7 +63,7 @@ export const WORK_EXPERIENCES: {
     description: [
       'Built a warehouse management system apps with the capability to calculate available inventory space, best product placement location based on product dimension and amount',
     ],
-    logo: 'images/company/no-logo.png',
+    logo: 'images/company/100/no-logo.png',
   },
 ]
 

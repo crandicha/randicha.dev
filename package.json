@@ -7,6 +7,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "img:resize:company": "rm -rf public/images/company/100 && mkdir public/images/company/100 && yarn sharp -i public/images/company/*.{svg,png} -o public/images/company/100/{base} resize 100 100",
+    "img:resize:contact": "rm -rf public/images/contact/32 && mkdir public/images/contact/32 && yarn sharp -i public/images/contact/*.{svg,png} -o public/images/contact/32/{base} resize 32 32",
+    "img:resize:all": "yarn img:resize:company && yarn img:resize:contact",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,7 +18,6 @@
     "@astrojs/mdx": "^0.15.1",
     "@astrojs/react": "^2.0.1",
     "@astrojs/tailwind": "^3.0.0",
-    "@astrojs/vercel": "^3.1.3",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/maven-pro": "^4.5.13",
     "@fontsource/montserrat": "^4.5.14",
@@ -31,6 +33,7 @@
     "react-responsive": "^9.0.2",
     "react-toastify": "^9.1.1",
     "sharp": "^0.31.3",
+    "sharp-cli": "^4.1.0",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {

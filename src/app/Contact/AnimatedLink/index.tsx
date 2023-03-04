@@ -26,7 +26,7 @@ const AnimatedLink = ({ name, url, src, index }: IAnimatedLink) => {
     >
       <a href={url} target="_blank">
         <Button variant="ghost" color="tertiary">
-          <img src={src} alt={name} className="text-red-200" />
+          <img src={src || ''} alt={name} className="text-red-200" />
         </Button>
       </a>
     </MotionInView>

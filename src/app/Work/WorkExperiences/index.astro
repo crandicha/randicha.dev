@@ -1,24 +1,11 @@
 ---
 import WorkItem from './WorkItem'
-import { getImage } from '@astrojs/image'
 import { WORK_EXPERIENCES } from '../../../../data/general'
 import WorkExperienceLine from './WorkExperienceLine'
 
-const parsedWorkExperiences = await Promise.all(
-  WORK_EXPERIENCES.map(async (workExperience, index) => ({
-    ...workExperience,
-    logo: await getImage({
-      src: workExperience.logo,
-      alt: workExperience.company,
-      width: 100,
-      height: 100,
-    }).then(({ src }) => src),
-  }))
-)
-
 const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
   if (index === 0) return 'first'
-  if (index === parsedWorkExperiences.length - 1) return 'last'
+  if (index === WORK_EXPERIENCES.length - 1) return 'last'
   return 'middle'
 }
 ---
@@ -28,7 +15,7 @@ const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
 >
   <WorkExperienceLine client:visible />
   {
-    parsedWorkExperiences?.map(
+    WORK_EXPERIENCES?.map(
       ({ company, title, from, to, description, logo }, index) => (
         <WorkItem
           client:visible
