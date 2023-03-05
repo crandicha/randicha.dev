@@ -55,7 +55,7 @@ const NavButton = () => {
     >
       {isOpen &&
         leftMenu?.map(({ icon, target }) => (
-          <Menu onClick={() => onClick(target)}>
+          <Menu onClick={() => onClick(target)} key={target}>
             <Icon>{icon}</Icon>
           </Menu>
         ))}
@@ -74,7 +74,7 @@ const NavButton = () => {
       </div>
       {isOpen &&
         rightMenu?.map(({ icon, target }) => (
-          <Menu onClick={() => onClick(target)}>
+          <Menu onClick={() => onClick(target)} key={target}>
             <Icon>{icon}</Icon>
           </Menu>
         ))}
