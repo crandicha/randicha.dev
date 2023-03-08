@@ -17,6 +17,7 @@
     "@astrojs/image": "^0.15.1",
     "@astrojs/mdx": "^0.15.1",
     "@astrojs/react": "^2.0.1",
+    "@astrojs/sitemap": "^1.2.0",
     "@astrojs/tailwind": "^3.0.0",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/maven-pro": "^4.5.13",
