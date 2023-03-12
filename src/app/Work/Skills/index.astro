@@ -14,7 +14,7 @@ import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from './data'
   <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
     {FRONTEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
   </div>
-  <!-- <GlitchText
+  <GlitchText
     client:visible
     as="h3"
     text="Backend"
@@ -22,7 +22,7 @@ import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from './data'
   />
   <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
     {BACKEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
-  </div> -->
+  </div>
   <GlitchText
     client:visible
     as="h3"
