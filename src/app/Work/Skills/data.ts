@@ -15,6 +15,8 @@ export const FRONTEND_SKILLS = [
   'PWA',
 ] as const
 
+export const BACKEND_SKILLS = ['NodeJS', 'Express', 'MySQL']
+
 export const TOOLS = [
   'VSCode',
   'Git',

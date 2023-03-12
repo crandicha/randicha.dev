@@ -1,7 +1,7 @@
 ---
 import GlitchText from '../../../components/GlitchText'
 import SkillCard from './SkillCard/index.astro'
-import { FRONTEND_SKILLS, TOOLS } from './data'
+import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from './data'
 ---
 
 <div>
@@ -13,6 +13,15 @@ import { FRONTEND_SKILLS, TOOLS } from './data'
   />
   <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
     {FRONTEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
+  </div>
+  <GlitchText
+    client:visible
+    as="h3"
+    text="Backend"
+    className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
+  />
+  <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
+    {BACKEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
   </div>
   <GlitchText
     client:visible
