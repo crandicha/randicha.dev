@@ -7,10 +7,18 @@ export const WORK_EXPERIENCES: {
   logo: string
 }[] = [
   {
+    company: 'Tiket.com',
+    title: 'Senior Frontend Engineer',
+    from: 'June 2023',
+    to: 'Present',
+    description: ['-'],
+    logo: 'images/company/100/tiketcom.png',
+  },
+  {
     company: 'GovTech Edu',
     title: 'Senior Frontend Engineer',
     from: 'Aug 2021',
-    to: 'Present',
+    to: 'May 2023',
     description: [
       'Worked with multiple squad to build feature that help teachers & educators in Indonesia in every aspect',
       'Contributing in building company-wide Frontend Component Library',
