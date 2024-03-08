@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { motion, Transition, useAnimation, useInView } from 'framer-motion'
-import type { Target, TargetAndTransition } from 'framer-motion'
+import { motion, useAnimation, useInView } from 'framer-motion'
+import type { Target, TargetAndTransition, Transition } from 'framer-motion'
 import { useGetMediaQuery } from '../../../utils/mediaquery'
 
 export interface MotionInViewProps extends React.HTMLProps<HTMLDivElement> {

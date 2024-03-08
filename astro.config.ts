@@ -10,7 +10,6 @@ import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
-import image from '@astrojs/image'
 
 // https://astro.build/config
 import sitemap from '@astrojs/sitemap'
@@ -18,13 +17,5 @@ import sitemap from '@astrojs/sitemap'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://randicha.dev',
-  integrations: [
-    tailwind(),
-    react(),
-    mdx(),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
-    sitemap(),
-  ],
+  integrations: [tailwind(), react(), mdx(), sitemap()],
 })

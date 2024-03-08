@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import ScrambleText from '../../components/ScrambleText'
 ---
 
@@ -27,12 +27,12 @@ import ScrambleText from '../../components/ScrambleText'
       </div>
     </div>
     <div>
-      <Picture
-        class="bg-tertiary rounded-full self-image"
+      <Image
+        class="bg-tertiary rounded-full self-image object-cover aspect-square sm:w-[250px] md:w-[500px]"
         src="/images/self-no-bg.png"
         alt="self photo"
-        widths={[250, 500]}
-        aspectRatio={1}
+        width="250"
+        height="250"
         sizes="(max-width: 768px) 250px, (min-width: 768px) 500px"
       />
     </div>

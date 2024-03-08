@@ -12,7 +12,7 @@ const WorkExperienceLine = () => {
   return (
     <motion.div
       ref={ref}
-      className="absolute top-[12%] left-[50%] z-[100] z-0 h-[76%] w-[1px] border-l border-r border-secondary"
+      className="absolute top-[12%] left-[50%] z-0 h-[76%] w-[1px] border-l border-r border-secondary"
       style={{
         transformOrigin: 'top',
         scaleY: scrollYProgress,
