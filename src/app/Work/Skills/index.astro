@@ -6,7 +6,7 @@ import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from './data'
 
 <div>
   <GlitchText
-    client:visible
+    client:idle
     as="h3"
     text="Frontend"
     className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
@@ -15,7 +15,7 @@ import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from './data'
     {FRONTEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
   </div>
   <GlitchText
-    client:visible
+    client:idle
     as="h3"
     text="Backend"
     className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
@@ -24,7 +24,7 @@ import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from './data'
     {BACKEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
   </div>
   <GlitchText
-    client:visible
+    client:idle
     as="h3"
     text="Tools"
     className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"

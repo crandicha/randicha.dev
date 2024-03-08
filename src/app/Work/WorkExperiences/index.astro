@@ -13,12 +13,12 @@ const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
 <div
   class="relative flex flex-col items-center justify-center gap-4 p-4 md:block md:gap-0 md:p-8"
 >
-  <WorkExperienceLine client:visible />
+  <WorkExperienceLine client:idle />
   {
     WORK_EXPERIENCES?.map(
       ({ company, title, from, to, description, logo }, index) => (
         <WorkItem
-          client:visible
+          client:idle
           position={index % 2 === 0 ? 'left' : 'right'}
           from={from}
           to={to}
