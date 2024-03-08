@@ -39,7 +39,7 @@ const { class: klass } = Astro.props
       client:visible
       className="font-Montserrat font-bold text-4xl md:text-5xl text-tertiary"
     />
-    <AnimatedContact client:visible />
+    <AnimatedContact client:visible open/>
     <div class="flex flex-row gap-4">
       {
         LINKS?.map(({ name, src, url }, index) => (
