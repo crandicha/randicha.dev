@@ -4,6 +4,7 @@ import Home from '../app/Home/index.astro'
 import About from '../app/About/index.astro'
 import Work from '../app/Work/index.astro'
 import Contact from '../app/Contact/index.astro'
+import PSNote from '../app/PSNote/index.astro'
 import NavButton from '../components/NavButton'
 ---
 
@@ -12,7 +13,10 @@ import NavButton from '../components/NavButton'
     <Home />
     <About />
     <Work />
-    <Contact class="mt-[100px]" />
+    <div class="bg-secondary">
+      <Contact class="mt-[100px]" />
+      <PSNote />
+    </div>
   </main>
   <NavButton client:visible />
 </Layout>
