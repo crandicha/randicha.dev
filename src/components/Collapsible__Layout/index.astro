@@ -1,0 +1,74 @@
+---
+const { frontmatter } = Astro.props
+---
+
+<div class="collapsible">
+  <input type="checkbox" id={`collapsible-label-${frontmatter.title}`} />
+  <label
+    class="collapsible-label"
+    for={`collapsible-label-${frontmatter.title}`}
+  >
+    {frontmatter.title}
+  </label>
+  <div class="collapsible-text">
+    <div class="p-4">
+      <slot />
+    </div>
+  </div>
+</div>
+<style>
+  .collapsible {
+    overflow: hidden;
+    font-weight: 700;
+  }
+  .collapsible input {
+    display: none;
+  }
+  .collapsible-label {
+    position: relative;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    padding: 1rem;
+    display: block;
+    border: 2px solid #e2e8f0;
+    background: #fff;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+  .collapsible-label:after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    width: 25px;
+    height: 25px;
+    background: url('svg/icons/chevron-down.svg') no-repeat;
+    transition: all 0.1s ease;
+  }
+  .collapsible-text {
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    line-height: 1.5;
+    position: relative;
+    top: -100%;
+    transition: all 0.1s ease;
+  }
+  .collapsible input:checked + .collapsible-label:after {
+    transform: rotate(180deg);
+  }
+  .collapsible input:checked ~ .collapsible-label {
+    border-radius: 0.375rem 0.375rem 0 0;
+  }
+  .collapsible input:checked ~ .collapsible-text {
+    height: auto;
+    padding-bottom: 25px;
+    background: #fff;
+    top: 0;
+    border-left: 2px solid #e2e8f0;
+    border-right: 2px solid #e2e8f0;
+    border-bottom: 2px solid #e2e8f0;
+    border-radius: 0 0 0.375rem 0.375rem;
+  }
+</style>
