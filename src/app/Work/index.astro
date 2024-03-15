@@ -1,7 +1,6 @@
 ---
 import GlitchText from '../../components/GlitchText'
 import WorkExperiences from './WorkExperiences/index.astro'
-import Skills from './Skills/index.astro'
 ---
 
 <section id="work">
@@ -13,14 +12,5 @@ import Skills from './Skills/index.astro'
       client:idle
     />
     <WorkExperiences />
-    <div class="mt-6 md:mt-8">
-      <GlitchText
-        text="Skills"
-        as="h2"
-        className="mb-4 text-center font-Montserrat text-3xl md:text-left md:text-4xl font-bold"
-        client:idle
-      />
-      <Skills />
-    </div>
   </div>
 </section>

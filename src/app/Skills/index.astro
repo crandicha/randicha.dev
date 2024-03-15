@@ -1,0 +1,16 @@
+---
+import GlitchText from '../../components/GlitchText'
+import SkillList from './SkillList/index.astro'
+---
+
+<div>
+    <div class="m-auto max-w-[1140px] p-6 md:p-8">
+      <GlitchText
+        text="Skills"
+        as="h2"
+        className="mb-4 text-center font-Montserrat text-3xl md:text-left md:text-4xl font-bold"
+        client:idle
+      />
+      <SkillList />
+    </div>
+</div>
