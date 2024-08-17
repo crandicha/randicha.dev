@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import MotionInView from '../../../components/MotionInView'
+import { YEARS_OF_EXPERIENCE } from '../../../../data/general'
 
 export interface IAnimatedAboutProps extends React.HTMLProps<HTMLDivElement> {}
 const AnimatedAbout = ({ className }: IAnimatedAboutProps) => {
@@ -17,11 +18,11 @@ const AnimatedAbout = ({ className }: IAnimatedAboutProps) => {
         }}
       >
         <p className="text-center text-lg md:text-left">
-          Self-teach tech enthusiast with 6+ years of experience as frontend
-          software engineer and passion in building tech solutions for better
-          humanity, backed by knowledge and experience building several web
-          applications for multiple startups unicorn & public sector in
-          Indonesia.
+          Self-teach tech enthusiast with {YEARS_OF_EXPERIENCE}+ years of
+          experience as frontend software engineer and passion in building tech
+          solutions for better humanity, backed by knowledge and experience
+          building several web applications for multiple startups unicorn &
+          public sector in Indonesia.
         </p>
       </MotionInView>
       <MotionInView

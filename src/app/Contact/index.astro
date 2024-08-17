@@ -5,7 +5,12 @@ import { GITHUB_URL, LINKEDIN_URL, PHONE_NUMBER } from '../../../data/general'
 import { getWhatsappUrl } from '../../../utils/whatsapp'
 import AnimatedLink from './AnimatedLink'
 
-const LINKS = [
+const LINKS: {
+  name: string
+  src: string
+  url: string
+  isHidden?: boolean
+}[] = [
   {
     name: 'LinkedIn',
     src: 'images/contact/32/Linkedin.png',
@@ -19,6 +24,7 @@ const LINKS = [
   {
     name: 'Whatsapp',
     src: 'images/contact/32/Whatsapp.png',
+    isHidden: true,
     url: getWhatsappUrl({
       number: PHONE_NUMBER,
       text: 'Hi, I saw your portfolio and I would like to talk to you about a job opportunity.',
@@ -39,18 +45,20 @@ const { class: klass } = Astro.props
       client:idle
       className="font-Montserrat font-bold text-4xl md:text-5xl text-tertiary"
     />
-    <AnimatedContact client:idle open/>
+    <AnimatedContact client:idle open />
     <div class="flex flex-row gap-4">
       {
-        LINKS?.map(({ name, src, url }, index) => (
-          <AnimatedLink
-            client:idle
-            name={name}
-            src={src}
-            url={url}
-            index={index}
-          />
-        ))
+        LINKS?.filter?.(({ isHidden }) => !isHidden)?.map(
+          ({ name, src, url }, index) => (
+            <AnimatedLink
+              client:idle
+              name={name}
+              src={src}
+              url={url}
+              index={index}
+            />
+          )
+        )
       }
     </div>
   </div>
