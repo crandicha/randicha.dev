@@ -18,11 +18,11 @@ const AnimatedAbout = ({ className }: IAnimatedAboutProps) => {
         }}
       >
         <p className="text-center text-lg md:text-left">
-          Self-teach tech enthusiast with {YEARS_OF_EXPERIENCE}+ years of
-          experience as frontend software engineer and passion in building tech
-          solutions for better humanity, backed by knowledge and experience
-          building several web applications for multiple startups unicorn &
-          public sector in Indonesia.
+          Tech enthusiast with {YEARS_OF_EXPERIENCE}+ years of experience as
+          frontend software engineer and passion in building tech solutions for
+          better humanity, backed by knowledge and experience building several
+          web applications for multiple startups unicorn & public sector in
+          Indonesia.
         </p>
       </MotionInView>
       <MotionInView
