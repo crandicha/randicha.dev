@@ -14,7 +14,7 @@ export const WORK_EXPERIENCES: {
     description: [
       'Collaborated cross-functionally with various teams to enhance the pricing strategy for products on Tiket.com.',
       'Facilitated streamlined pricing management for the product manager and market manager through the utilization of an intuitive pricing dashboard.',
-      'Enhanced code readability by crafting well-documented, meticulously tested, and strongly typed code for improved maintainability and understanding.',
+      'Enhanced code readability by crafting modularized, meticulously tested, and strongly typed code for improved maintainability and understanding.',
     ],
     logo: 'images/company/100/tiketcom.png',
   },
