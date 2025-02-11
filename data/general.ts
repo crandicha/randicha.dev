@@ -14,8 +14,7 @@ export const WORK_EXPERIENCES: {
     description: [
       'Designed and led the development of an intuitive pricing dashboard, enabling streamlined pricing management.',
       'Spearheaded frontend & apps initiatives across 7+ vertical teams to optimize pricing strategies at Tiket.com (ex: Nudges System, Dynamic Banner).',
-      'Drove innovation by implementing emerging technologies and best practices, enhancing frontend performance and maintainability.',
-      'Established modular, strongly typed, and well-tested frontend codebases to improve scalability and maintainability.',
+      'Established modular, strongly typed, and well-tested frontend codebases to improve scalability and maintainability. Resulting in faster feature iteration by 40%',
       'Provided mentorship and technical guidance to frontend engineers, fostering skill development and knowledge sharing.',
     ],
     logo: 'images/company/100/tiketcom.png',
@@ -26,10 +25,9 @@ export const WORK_EXPERIENCES: {
     from: 'Aug 2021',
     to: 'May 2023',
     description: [
-      'Collaborated with multiple squads to develop features enhancing the educational experience for teachers in Indonesia.',
-      'Helped in designing and developing the Design System Component Library and general utilities packages used by 40+ frontend engineers, streamlining development processes.',
-      'Architected PWA caching strategies to ensure an optimal cross-platform user experience.',
-      'Led the migration of a legacy Svelte service to Next.js, implementing load balancing for seamless user experience.',
+      'Helped in designing and developing the Design System Component Library and general utilities packages used by 40+ frontend engineers, streamlining development processes. Resulting in 30% productivity increase of all frontend engineers.',
+      'Architected PWA caching strategies to ensure an optimal cross-platform user experience. Reducing the consecutive load time by 50%.',
+      'Led the migration of a legacy Svelte service to Next.js, implementing load balancing for seamless user experience. Resulting in 30% productivity increase of other frontend developers that contribute to the service.',
       'Served as a speaker at internal frontend meetups, sharing expertise on best practices and new technologies.',
       'Mentored and provided guidance to fellow frontend engineers to enhance their skills and knowledge.',
     ],
