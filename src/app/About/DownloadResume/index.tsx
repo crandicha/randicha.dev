@@ -1,7 +1,7 @@
 import React from 'react'
 
 const RESUME_LINK =
-  'https://drive.google.com/file/d/1VU1BllCADW4eu9B0eIJFQOKdo05AI7pB/view?usp=sharing'
+  'https://drive.google.com/file/d/1-Fcqh_j2O04quucvZl1TQSMzLd3AXjdy/view?usp=drive_link'
 
 const DownloadResume = () => {
   return <div>aaa</div>
