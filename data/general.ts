@@ -14,7 +14,7 @@ export const WORK_EXPERIENCES: {
     description: [
       'Designed and led the development of an intuitive pricing dashboard, enabling streamlined pricing management.',
       'Spearheaded frontend & apps initiatives across 7+ vertical teams to optimize pricing strategies at Tiket.com (ex: Nudges System, Dynamic Banner).',
-      'Created and maintained a shared component library used by both the Pricing and Promo teams, ensuring consistent UI/UX, reducing duplication, and streamlining development across codebases. With automated setup for component creation, alpha releases, and stable release.',
+      'Architected and maintained a component library used across all tiket.com vertical teams, ensuring consistent UI/UX, reducing duplication, and streamlining development. Implemented automated workflows for component creation, alpha releases, and stable releases.',
       'Established modular, strongly typed, and well-tested frontend codebases to improve scalability and maintainability. Resulting in faster feature iteration by 40%',
       'Provided mentorship and technical guidance to frontend engineers, fostering skill development and knowledge sharing.',
     ],
