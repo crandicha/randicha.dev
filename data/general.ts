@@ -7,10 +7,18 @@ export const WORK_EXPERIENCES: {
   logo: string
 }[] = [
   {
+    company: 'CSG',
+    title: 'Lead Frontend Engineer',
+    from: 'November 2025',
+    to: 'Present',
+    description: ['-'],
+    logo: 'images/company/100/csg.png'
+  },
+  {
     company: 'Tiket.com',
     title: 'Senior Frontend Engineer',
     from: 'June 2023',
-    to: 'Present',
+    to: 'November 2025',
     description: [
       'Designed and led the development of an intuitive pricing dashboard, enabling streamlined pricing management.',
       'Spearheaded frontend & apps initiatives across 7+ vertical teams to optimize pricing strategies at Tiket.com (ex: Nudges System, Dynamic Banner).',
