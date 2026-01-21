@@ -11,7 +11,10 @@ export const WORK_EXPERIENCES: {
     title: 'Lead Frontend Engineer',
     from: 'November 2025',
     to: 'Present',
-    description: ['-'],
+    description: [
+      'Led the frontend technical design and development for Quote and Order team',
+      'Bridged engineering and product by managing team backlog, prioritizing initiatives, and aligning execution with product goals'
+    ],
     logo: 'images/company/100/csg.png'
   },
   {
