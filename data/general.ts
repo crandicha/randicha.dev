@@ -13,7 +13,7 @@ export const WORK_EXPERIENCES: {
     to: 'Present',
     description: [
       'Led the frontend technical design and development for Quote and Order team',
-      'Bridged engineering and product by managing team backlog, prioritizing initiatives, and aligning execution with product goals'
+      'Bridged engineering, product, and design by managing backlogs, aligning technical execution with product goals, and providing critical UX/UI feedback during design reviews to optimize user flows.'
     ],
     logo: 'images/company/100/csg.png'
   },
@@ -32,7 +32,7 @@ export const WORK_EXPERIENCES: {
     logo: 'images/company/100/tiketcom.png',
   },
   {
-    company: 'GovTech Edu',
+    company: 'INA Digital Edu',
     title: 'Senior Frontend Engineer',
     from: 'Aug 2021',
     to: 'May 2023',
