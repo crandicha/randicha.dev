@@ -25,9 +25,9 @@ export const WORK_EXPERIENCES: {
     to: 'November 2025',
     description: [
       'Designed and led the development of an intuitive pricing dashboard, enabling streamlined pricing management.',
-      'Spearheaded frontend & apps initiatives across 7+ vertical teams to optimize pricing strategies at Tiket.com (ex: Nudges System, Dynamic Banner).',
+      'Spearheaded frontend and application initiatives across 7+ vertical teams to optimize pricing strategies at tiket.com, including the Nudges System and Dynamic Banner.',
       'Architected and maintained a component library used across all tiket.com vertical teams, ensuring consistent UI/UX, reducing duplication, and streamlining development. Implemented automated workflows for component creation, alpha releases, and stable releases.',
-      'Established modular, strongly typed, and well-tested frontend codebases to improve scalability and maintainability. Resulting in faster feature iteration by 40%',
+      'Established modular, strongly typed, and well-tested frontend architectures, reducing feature iteration time by 40%.',
       'Provided mentorship and technical guidance to frontend engineers, fostering skill development and knowledge sharing.',
     ],
     logo: 'images/company/100/tiketcom.png',
@@ -39,7 +39,7 @@ export const WORK_EXPERIENCES: {
     to: 'May 2023',
     description: [
       'Helped in designing and developing the Design System Component Library and general utilities packages used by 40+ frontend engineers, streamlining development processes. Resulting in 30% productivity increase of all frontend engineers.',
-      'Architected PWA caching strategies to ensure an optimal cross-platform user experience. Reducing the consecutive load time by 50%.',
+      'Architected PWA caching strategies to improve cross-platform performance, reducing subsequent load times by 50%.',
       'Led the migration of a legacy Svelte service to Next.js, implementing load balancing for seamless user experience. Resulting in 30% productivity increase of other frontend developers that contribute to the service.',
       'Served as a speaker at internal frontend meetups, sharing expertise on best practices and new technologies.',
       'Mentored and provided guidance to fellow frontend engineers to enhance their skills and knowledge.',
