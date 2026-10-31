@@ -1,26 +1,21 @@
 import clsx from 'clsx'
 
-import styles from './index.module.css'
-
-interface IButtonProps extends React.HTMLProps<HTMLButtonElement> {
-  color?: 'primary' | 'secondary' | 'tertiary' | 'white'
-  variant?: 'fill' | 'ghost'
-  fullWidth?: boolean
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'filled' | 'plain'
 }
 
 const Button = ({
   children,
   className,
-  color = 'white',
-  variant = 'fill',
-  fullWidth,
+  variant = 'filled',
   ...props
 }: IButtonProps) => {
   const classes = clsx(
-    styles.button,
-    styles[color],
-    styles[variant],
-    fullWidth ? styles.fullWidth : '',
+    'inline-flex items-center justify-center gap-2 rounded-full font-medium transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/40 active:scale-[0.98]',
+    variant === 'filled' &&
+      'bg-accent px-6 py-3 text-white hover:bg-[#0077ed] dark:bg-accent-dark dark:hover:bg-[#147ce5]',
+    variant === 'plain' &&
+      'text-accent hover:underline dark:text-accent-dark',
     className
   )
   return (

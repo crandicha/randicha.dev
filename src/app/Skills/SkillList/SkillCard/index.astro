@@ -19,35 +19,20 @@ const getAspectRatio = (skill: TFrontendSkills | TToolsSkills) => {
 ---
 
 <div
-  class="skill-item mih-h-[156px] relative flex flex-[0_0_136px] flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-secondary bg-white p-4 hover:scale-110 md:min-h-[186px] md:flex-[0_0_186px]"
+  class="flex flex-col items-center gap-3 rounded-2xl bg-white p-3 dark:bg-surface-dark sm:p-4"
 >
-  <div class="flex flex-1 items-center justify-center">
+  <div class="flex flex-1 items-center justify-center rounded-xl bg-white p-2 dark:bg-ink-dark">
     <Image
       src={`/svg/skill/${skill}.svg`}
-      alt={skill}
+      alt=""
       widths={[100, 150]}
       width="100"
       height={100 * getAspectRatio(skill)}
-      sizes="(max-width: 768px) 100px, (min-width: 768px) 150px"
-      class="sm:w-[100px] md:w-[150px]"
+      sizes="(max-width: 768px) 80px, 100px"
+      class="h-12 w-auto sm:h-14 md:h-16"
     />
   </div>
-  <div class="mt-4 text-center font-Montserrat font-bold md:hidden">
+  <div class="w-full break-words text-center text-xs text-muted dark:text-muted-dark sm:text-sm">
     {skill}
   </div>
-  <div
-    class="skill-item-description absolute top-0 left-0 flex h-full w-full items-center justify-center rounded-lg bg-secondary font-Montserrat font-bold"
-  >
-    <div>{skill}</div>
-  </div>
 </div>
-<style>
-  .skill-item:hover > .skill-item-description {
-    transform: translateY(0%);
-  }
-
-  .skill-item-description {
-    transform: translateY(100%);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-</style>

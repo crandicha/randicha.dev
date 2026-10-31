@@ -1,35 +1,19 @@
 ---
-import GlitchText from '../../../components/GlitchText'
 import SkillCard from './SkillCard/index.astro'
-import { BACKEND_SKILLS, FRONTEND_SKILLS, TOOLS } from '../data.ts'
+import { FRONTEND_SKILLS, TOOLS } from '../data.ts'
 ---
 
 <div>
-  <GlitchText
-    client:idle
-    as="h3"
-    text="Frontend"
-    className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
-  />
-  <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
+  <h3 class="mb-4 text-center text-xl font-semibold md:text-left md:text-2xl">
+    Frontend
+  </h3>
+  <div class="mb-10 grid grid-cols-2 gap-3 min-[400px]:grid-cols-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-6">
     {FRONTEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
   </div>
-  <!-- <GlitchText
-    client:idle
-    as="h3"
-    text="Backend"
-    className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
-  />
-  <div class="mb-6 flex flex-row flex-wrap justify-center gap-4 md:mb-8">
-    {BACKEND_SKILLS?.map((skill) => <SkillCard skill={skill} />)}
-  </div> -->
-  <GlitchText
-    client:idle
-    as="h3"
-    text="Tools"
-    className="mb-4 text-center font-Montserrat text-xl md:text-left md:text-2xl font-bold"
-  />
-  <div class="flex flex-row flex-wrap justify-center gap-4">
+  <h3 class="mb-4 text-center text-xl font-semibold md:text-left md:text-2xl">
+    Tools
+  </h3>
+  <div class="grid grid-cols-2 gap-3 min-[400px]:grid-cols-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-6">
     {TOOLS?.map((skill) => <SkillCard skill={skill} />)}
   </div>
 </div>

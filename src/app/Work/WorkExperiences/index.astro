@@ -1,39 +1,43 @@
 ---
-import WorkItem from './WorkItem'
 import { WORK_EXPERIENCES } from '../../../../data/general'
-import WorkExperienceLine from './WorkExperienceLine'
-
-const getIndexPosition = (index: number): 'first' | 'last' | 'middle' => {
-  if (index === 0) return 'first'
-  if (index === WORK_EXPERIENCES.length - 1) return 'last'
-  return 'middle'
-}
 ---
 
-<div
-  class="relative flex flex-col items-center justify-center gap-4 p-4 md:block md:gap-0 md:p-8"
->
-  <WorkExperienceLine client:idle />
+<ol class="flex flex-col gap-6">
   {
     WORK_EXPERIENCES?.map(
-      ({ company, title, from, to, description, logo }, index) => (
-        <WorkItem
-          client:idle
-          position={index % 2 === 0 ? 'left' : 'right'}
-          from={from}
-          to={to}
-          logo={logo || ''}
-          company={company}
-          title={title}
-          indexPosition={getIndexPosition(index)}
-        >
-          <ul class="ml-4 list-disc">
-            {description?.map((desc) => (
-              <li>{desc}</li>
-            ))}
-          </ul>
-        </WorkItem>
+      ({ company, title, from, to, description, logo }) => (
+        <li class="rounded-3xl bg-white p-5 dark:bg-surface-dark sm:p-8">
+          <div class="flex items-start gap-4">
+            <img
+              src={`/${logo}`}
+              alt=""
+              class="h-10 w-10 shrink-0 rounded-xl bg-white object-contain p-1 sm:h-12 sm:w-12"
+            />
+            <div class="min-w-0 flex-1">
+              <h3 class="text-xl font-semibold sm:text-2xl">{company}</h3>
+              <p class="text-base sm:text-lg">{title}</p>
+              <p class="mt-1 text-sm text-muted dark:text-muted-dark">
+                {from} – {to}
+              </p>
+            </div>
+          </div>
+          <details class="group mt-4">
+            <summary class="cursor-pointer list-none text-accent dark:text-accent-dark [&::-webkit-details-marker]:hidden">
+              <span class="inline-flex items-center gap-1">
+                Show details
+                <span class="inline-block transition group-open:rotate-90"
+                  >›</span
+                >
+              </span>
+            </summary>
+            <ul class="mt-4 list-disc pl-5 text-muted dark:text-muted-dark">
+              {description?.map((desc) => (
+                <li>{desc}</li>
+              ))}
+            </ul>
+          </details>
+        </li>
       )
     )
   }
-</div>
+</ol>

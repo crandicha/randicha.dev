@@ -1,5 +1,4 @@
 ---
-import GlitchText from '../../components/GlitchText'
 import AnimatedContact from './AnimatedContact'
 import { GITHUB_URL, LINKEDIN_URL, PHONE_NUMBER } from '../../../data/general'
 import { getWhatsappUrl } from '../../../utils/whatsapp'
@@ -31,20 +30,17 @@ const LINKS: {
     }),
   },
 ]
-
-const { class: klass } = Astro.props
 ---
 
-<section id="contact" class={klass}>
+<section id="contact" class="scroll-mt-12 py-16 md:py-32">
   <div
-    class="m-auto flex max-w-[1140px] flex-col items-center justify-center gap-10 p-10 md:gap-12 md:p-12"
+    class="mx-auto flex max-w-5xl flex-col items-center justify-center gap-10 px-5 sm:px-6 md:gap-12 md:px-8"
   >
-    <GlitchText
-      as="h2"
-      text="Lets Get In Touch"
-      client:idle
-      className="font-Montserrat font-bold text-4xl md:text-5xl text-tertiary"
-    />
+    <h2
+      class="text-center text-3xl font-semibold tracking-tight sm:text-4xl md:text-6xl"
+    >
+      Let's get in touch
+    </h2>
     <AnimatedContact client:idle close />
     <div class="flex flex-row gap-4">
       {

@@ -1,14 +1,26 @@
 import { useEffect, useRef } from 'react'
-import { motion, useAnimation, useInView } from 'framer-motion'
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useReducedMotion,
+} from 'framer-motion'
 import type { Target, TargetAndTransition, Transition } from 'framer-motion'
 import { useGetMediaQuery } from '../../../utils/mediaquery'
+
+const DEFAULT_HIDDEN: Target = { opacity: 0, y: 24 }
+const DEFAULT_VISIBLE: TargetAndTransition = { opacity: 1, y: 0 }
+const DEFAULT_TRANSITION: Transition = {
+  duration: 0.6,
+  ease: [0.25, 0.1, 0.25, 1],
+}
 
 export interface MotionInViewProps extends React.HTMLProps<HTMLDivElement> {
   transition?: Transition
   once?: boolean
   amount?: number
-  onHidden: Target
-  onVisible: TargetAndTransition
+  onHidden?: Target
+  onVisible?: TargetAndTransition
   onHiddenSM?: Target
   onVisibleSM?: TargetAndTransition
   onHiddenMD?: Target
@@ -22,11 +34,11 @@ export interface MotionInViewProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 const MotionInView = ({
-  transition,
+  transition = DEFAULT_TRANSITION,
   once = false,
   amount = 0.5,
-  onHidden,
-  onVisible,
+  onHidden = DEFAULT_HIDDEN,
+  onVisible = DEFAULT_VISIBLE,
   onHiddenSM,
   onVisibleSM,
   onHiddenMD,
@@ -40,8 +52,8 @@ const MotionInView = ({
   className,
   children,
   id,
-  style,
 }: MotionInViewProps) => {
+  const reduceMotion = useReducedMotion()
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once, amount })
@@ -81,13 +93,23 @@ const MotionInView = ({
   const variants = mediaQueryVariants[useGetMediaQuery()]
 
   useEffect(() => {
+    if (reduceMotion) return
     if (inView) {
       controls.start('visible')
     }
     if (!inView) {
       controls.start('hidden')
     }
-  }, [controls, inView])
+  }, [controls, inView, reduceMotion])
+
+  if (reduceMotion) {
+    return (
+      <div className={className} id={id}>
+        {children}
+      </div>
+    )
+  }
+
   return (
     <motion.div
       ref={ref}
@@ -95,9 +117,8 @@ const MotionInView = ({
       animate={controls}
       className={className}
       variants={variants}
-      transition={transition}
+      transition={{ ...DEFAULT_TRANSITION, ...transition }}
       id={id}
-      style={style}
     >
       {children}
     </motion.div>

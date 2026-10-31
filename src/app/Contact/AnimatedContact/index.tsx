@@ -1,4 +1,3 @@
-import React from 'react'
 import MotionInView from '../../../components/MotionInView'
 import { EMAIL_ADDRESS } from '../../../../data/general'
 import Button from '../../../components/Button'
@@ -25,15 +24,14 @@ const AnimatedContact = ({ open }: IAnimatedContact) => {
   return (
     <MotionInView
       once
-      onHidden={{ opacity: 0, translateY: '50px' }}
-      onVisible={{ opacity: 1, translateY: '0px' }}
-      className="flex flex-col gap-10 text-center md:gap-12"
+      className="flex flex-col items-center gap-8 text-center md:gap-10"
     >
-      <p className="text-xl md:text-2xl">{text}</p>
+      <p className="max-w-2xl text-base text-muted dark:text-muted-dark sm:text-lg md:text-xl">
+        {text}
+      </p>
       <Button
-        variant="ghost"
-        color="tertiary"
-        className="font-Montserrat text-2xl font-bold md:text-3xl"
+        variant="filled"
+        className="max-w-full break-all text-base md:text-lg"
         onClick={onEmailClicked}
       >
         {EMAIL_ADDRESS}

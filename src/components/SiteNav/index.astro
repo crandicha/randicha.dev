@@ -1,0 +1,162 @@
+---
+import ThemeToggle from '../ThemeToggle'
+
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Work', href: '#work' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#contact' },
+]
+
+const linkClasses =
+  'text-ink/80 hover:text-ink focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/40 dark:text-ink-dark/80 dark:hover:text-ink-dark aria-[current=true]:text-accent dark:aria-[current=true]:text-accent-dark'
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-black/10 bg-canvas/70 backdrop-blur-xl backdrop-saturate-150 dark:border-white/10 dark:bg-canvas-dark/70"
+>
+  <div
+    class="mx-auto flex h-12 max-w-5xl items-center justify-between px-5 sm:px-6"
+  >
+    <a
+      href="#home"
+      data-nav-link
+      data-section="home"
+      class="text-sm font-semibold text-ink hover:text-ink focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/40 dark:text-ink-dark aria-[current=true]:text-accent dark:aria-[current=true]:text-accent-dark"
+    >
+      Charles R. G. S.
+    </a>
+    <div class="flex items-center gap-1 sm:gap-2 md:gap-4">
+      <nav aria-label="Sections" class="hidden gap-4 md:flex md:gap-6">
+        {
+          navLinks.map(({ label, href }) => (
+            <a
+              href={href}
+              data-nav-link
+              data-section={href.slice(1)}
+              class:list={[
+                linkClasses,
+                'text-xs md:text-sm',
+              ]}
+            >
+              {label}
+            </a>
+          ))
+        }
+      </nav>
+      <ThemeToggle client:load />
+      <button
+        type="button"
+        class="group inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink/80 transition hover:text-ink focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/40 dark:text-ink-dark/80 dark:hover:text-ink-dark md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Menu"
+        data-menu-button
+      >
+        <svg
+          class="h-5 w-5 group-aria-expanded:hidden"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+        <svg
+          class="hidden h-5 w-5 group-aria-expanded:block"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav
+    id="mobile-nav"
+    aria-label="Sections"
+    hidden
+    class="border-t border-black/10 bg-canvas/95 backdrop-blur-xl dark:border-white/10 dark:bg-canvas-dark/95 md:hidden"
+  >
+    {
+      navLinks.map(({ label, href }) => (
+        <a
+          href={href}
+          data-nav-link
+          data-section={href.slice(1)}
+          class:list={[
+            linkClasses,
+            'block px-5 py-3 text-lg sm:px-6',
+          ]}
+        >
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  const navLinks = document.querySelectorAll('[data-nav-link]')
+  const sections = document.querySelectorAll('section[id]')
+  const menuButton = document.querySelector('[data-menu-button]')
+  const menu = document.getElementById('mobile-nav')
+
+  const setActive = (sectionId: string) => {
+    navLinks.forEach((link) => {
+      const match = link.getAttribute('data-section') === sectionId
+      if (match) {
+        link.setAttribute('aria-current', 'true')
+      } else {
+        link.removeAttribute('aria-current')
+      }
+    })
+  }
+
+  const setMenuOpen = (open: boolean) => {
+    if (!menuButton || !menu) return
+    menu.hidden = !open
+    menuButton.setAttribute('aria-expanded', String(open))
+  }
+
+  if (menuButton && menu) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
+      setMenuOpen(!isOpen)
+    })
+
+    menu.querySelectorAll('a[data-nav-link]').forEach((link) => {
+      link.addEventListener('click', () => setMenuOpen(false))
+    })
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return
+      if (menuButton.getAttribute('aria-expanded') !== 'true') return
+      setMenuOpen(false)
+      menuButton.focus()
+    })
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id)
+        }
+      })
+    },
+    { rootMargin: '-50% 0px -50% 0px' }
+  )
+
+  sections.forEach((section) => observer.observe(section))
+
+  if (sections.length > 0) {
+    setActive(sections[0].id)
+  }
+</script>

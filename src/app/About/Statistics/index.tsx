@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import IncreasingNumber from '../../../components/IncreasingNumber'
 import { WORK_EXPERIENCES, YEARS_OF_EXPERIENCE } from '../../../../data/general'
 
 export interface IStatisticsProps extends React.HTMLProps<HTMLDivElement> {}
@@ -9,22 +8,25 @@ const Statistics = ({ className }: IStatisticsProps) => {
   return (
     <div
       className={clsx(
-        'flex flex-col justify-around gap-10 md:flex-row',
+        'grid grid-cols-1 gap-6 sm:grid-cols-2',
         className
       )}
     >
-      <div className="flex flex-col items-center justify-center gap-2">
-        <div className="flex flex-row font-Montserrat text-3xl font-bold text-tertiary">
-          <IncreasingNumber number={YEARS_OF_EXPERIENCE} />+
+      <div className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white p-6 dark:bg-surface-dark sm:p-8">
+        <div className="text-4xl font-semibold text-accent dark:text-accent-dark sm:text-5xl">
+          {YEARS_OF_EXPERIENCE}+
         </div>
-        <p className="text-center text-lg md:text-left">Years of Experience</p>
+        <p className="text-center text-muted dark:text-muted-dark">
+          Years of Experience
+        </p>
       </div>
-      <div className="flex flex-col items-center justify-center gap-2">
-        <IncreasingNumber
-          number={companiesWorked}
-          className="font-Montserrat text-3xl font-bold text-tertiary"
-        />
-        <p className="text-center text-lg md:text-left">Companies Worked</p>
+      <div className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white p-6 dark:bg-surface-dark sm:p-8">
+        <div className="text-4xl font-semibold text-accent dark:text-accent-dark sm:text-5xl">
+          {companiesWorked}
+        </div>
+        <p className="text-center text-muted dark:text-muted-dark">
+          Companies Worked
+        </p>
       </div>
     </div>
   )
