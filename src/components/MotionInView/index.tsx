@@ -1,10 +1,5 @@
-import { useEffect, useRef } from 'react'
-import {
-  motion,
-  useAnimation,
-  useInView,
-  useReducedMotion,
-} from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import type { Target, TargetAndTransition, Transition } from 'framer-motion'
 import { useGetMediaQuery } from '../../../utils/mediaquery'
 
@@ -54,7 +49,6 @@ const MotionInView = ({
   id,
 }: MotionInViewProps) => {
   const reduceMotion = useReducedMotion()
-  const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once, amount })
   const variantDefault = {
@@ -91,30 +85,14 @@ const MotionInView = ({
   }
 
   const variants = mediaQueryVariants[useGetMediaQuery()]
-
-  useEffect(() => {
-    if (reduceMotion) return
-    if (inView) {
-      controls.start('visible')
-    }
-    if (!inView) {
-      controls.start('hidden')
-    }
-  }, [controls, inView, reduceMotion])
-
-  if (reduceMotion) {
-    return (
-      <div className={className} id={id}>
-        {children}
-      </div>
-    )
-  }
+  // Prefer reduced motion → always show final state (never stick at opacity 0)
+  const visible = Boolean(reduceMotion) || inView
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={controls}
+      initial={reduceMotion ? 'visible' : 'hidden'}
+      animate={visible ? 'visible' : 'hidden'}
       className={className}
       variants={variants}
       transition={{ ...DEFAULT_TRANSITION, ...transition }}
