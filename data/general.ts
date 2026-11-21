@@ -15,7 +15,7 @@ export const WORK_EXPERIENCES: {
     to: 'Present',
     location: 'Englewood, CO',
     description: [
-      'Led frontend technical design and development for Quote and Order team',
+      'Led frontend technical design and development for the Quote and Order (QnO) application, overseeing key modules across Specification, Offering, Catalog, Order, and Inventory.',
       'Bridged engineering, product, and design by managing backlogs, aligning technical execution with product goals, and providing critical UX/UI feedback during design reviews to optimize user flows.',
       'Drove frontend modernization initiatives (AngularJs to Angular) to reduce technical debt, strengthen platform scalability, and establish a more sustainable foundation for future product development.',
     ],
